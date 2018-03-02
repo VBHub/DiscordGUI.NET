@@ -24,7 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.SendMessage = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.MessageBox = New System.Windows.Forms.TextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.GuildList = New System.Windows.Forms.ListBox()
         Me.Refresh = New System.Windows.Forms.Button()
@@ -44,12 +44,12 @@ Partial Class Form1
         Me.SendMessage.Text = "Send message"
         Me.SendMessage.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'MessageBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(133, 25)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(208, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.MessageBox.Location = New System.Drawing.Point(133, 25)
+        Me.MessageBox.Name = "MessageBox"
+        Me.MessageBox.Size = New System.Drawing.Size(208, 20)
+        Me.MessageBox.TabIndex = 2
         '
         'ChannelList
         '
@@ -117,7 +117,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Refresh)
         Me.Controls.Add(Me.GuildList)
         Me.Controls.Add(Me.ChannelList)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.MessageBox)
         Me.Controls.Add(Me.SendMessage)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -128,7 +128,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents SendMessage As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents MessageBox As TextBox
     Friend WithEvents ChannelList As ListBox
     Friend WithEvents GuildList As ListBox
     Friend WithEvents Refresh As Button
