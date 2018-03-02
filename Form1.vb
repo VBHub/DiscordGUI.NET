@@ -7,12 +7,14 @@ Imports System.Linq
 
 Public Class Form1
     Dim WithEvents DiscordBot As New DiscordSocketClient
-
+    Dim msgArray As Array
 
 
     Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
         startup()
+
+
     End Sub
 
 
@@ -25,14 +27,7 @@ Public Class Form1
 
     Private Sub SendMessage_Click(sender As Object, e As EventArgs) Handles SendMessage.Click
         ''When you press the send message button, it will sent the message inside the Textbox to the selected channel
-        Try
-            ChannelList.SelectedItem.SendMessageAsync(TextBox1.Text)
-            TextBox1.Text = ""
-        Catch ex As Exception
-            MsgBox("you must select a channel ID in the box")
-        End Try
-
-
+        sendMsg()
     End Sub
 
 
@@ -95,6 +90,24 @@ Public Class Form1
 
         TokenInput.Text = My.Settings.token
     End Function
+
+    Private Function sendMsg()
+        ''function to send a the message
+        Try
+            ChannelList.SelectedItem.SendMessageAsync(MessageBox.Text)
+            MessageBox.Text = ""
+        Catch ex As Exception
+            MsgBox("you must select a channel ID in the box")
+        End Try
+    End Function
+
+
+    Private Sub MessageBox_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageBox.KeyDown
+        ''sends the message when ENTER key is pressed
+        If e.KeyCode = 13 Then
+            sendMsg()
+        End If
+    End Sub
 
 
 
