@@ -34,12 +34,14 @@ Partial Class Form1
         Me.ReloadBot = New System.Windows.Forms.Button()
         Me.UserList = New System.Windows.Forms.ListBox()
         Me.InsertMention = New System.Windows.Forms.Button()
+        Me.MessageList = New System.Windows.Forms.ListBox()
+        Me.ClearMsgList = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SendMessage
         '
-        Me.SendMessage.Location = New System.Drawing.Point(241, 314)
+        Me.SendMessage.Location = New System.Drawing.Point(241, 311)
         Me.SendMessage.Name = "SendMessage"
         Me.SendMessage.Size = New System.Drawing.Size(208, 27)
         Me.SendMessage.TabIndex = 0
@@ -48,7 +50,7 @@ Partial Class Form1
         '
         'MessageBox
         '
-        Me.MessageBox.Location = New System.Drawing.Point(241, 288)
+        Me.MessageBox.Location = New System.Drawing.Point(241, 285)
         Me.MessageBox.Name = "MessageBox"
         Me.MessageBox.Size = New System.Drawing.Size(208, 20)
         Me.MessageBox.TabIndex = 2
@@ -56,9 +58,9 @@ Partial Class Form1
         'ChannelList
         '
         Me.ChannelList.FormattingEnabled = True
-        Me.ChannelList.Location = New System.Drawing.Point(268, 12)
+        Me.ChannelList.Location = New System.Drawing.Point(241, 12)
         Me.ChannelList.Name = "ChannelList"
-        Me.ChannelList.Size = New System.Drawing.Size(181, 212)
+        Me.ChannelList.Size = New System.Drawing.Size(200, 212)
         Me.ChannelList.TabIndex = 4
         '
         'GuildList
@@ -66,7 +68,7 @@ Partial Class Form1
         Me.GuildList.FormattingEnabled = True
         Me.GuildList.Location = New System.Drawing.Point(6, 12)
         Me.GuildList.Name = "GuildList"
-        Me.GuildList.Size = New System.Drawing.Size(256, 212)
+        Me.GuildList.Size = New System.Drawing.Size(227, 212)
         Me.GuildList.TabIndex = 7
         '
         'Refresh
@@ -101,9 +103,9 @@ Partial Class Form1
         '
         'ReloadBot
         '
-        Me.ReloadBot.Location = New System.Drawing.Point(501, 415)
+        Me.ReloadBot.Location = New System.Drawing.Point(474, 424)
         Me.ReloadBot.Name = "ReloadBot"
-        Me.ReloadBot.Size = New System.Drawing.Size(121, 29)
+        Me.ReloadBot.Size = New System.Drawing.Size(121, 23)
         Me.ReloadBot.TabIndex = 11
         Me.ReloadBot.Text = "Reload bot"
         Me.ReloadBot.UseVisualStyleBackColor = True
@@ -111,25 +113,44 @@ Partial Class Form1
         'UserList
         '
         Me.UserList.FormattingEnabled = True
-        Me.UserList.Location = New System.Drawing.Point(455, 12)
+        Me.UserList.Location = New System.Drawing.Point(447, 12)
         Me.UserList.Name = "UserList"
-        Me.UserList.Size = New System.Drawing.Size(167, 212)
+        Me.UserList.Size = New System.Drawing.Size(148, 212)
         Me.UserList.TabIndex = 12
         '
         'InsertMention
         '
-        Me.InsertMention.Location = New System.Drawing.Point(480, 230)
+        Me.InsertMention.Location = New System.Drawing.Point(470, 230)
         Me.InsertMention.Name = "InsertMention"
         Me.InsertMention.Size = New System.Drawing.Size(108, 23)
         Me.InsertMention.TabIndex = 13
         Me.InsertMention.Text = "Insert Mention"
         Me.InsertMention.UseVisualStyleBackColor = True
         '
+        'MessageList
+        '
+        Me.MessageList.FormattingEnabled = True
+        Me.MessageList.Location = New System.Drawing.Point(601, 12)
+        Me.MessageList.Name = "MessageList"
+        Me.MessageList.Size = New System.Drawing.Size(222, 446)
+        Me.MessageList.TabIndex = 14
+        '
+        'ClearMsgList
+        '
+        Me.ClearMsgList.Location = New System.Drawing.Point(474, 395)
+        Me.ClearMsgList.Name = "ClearMsgList"
+        Me.ClearMsgList.Size = New System.Drawing.Size(121, 23)
+        Me.ClearMsgList.TabIndex = 15
+        Me.ClearMsgList.Text = "Clear Messages"
+        Me.ClearMsgList.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(638, 463)
+        Me.ClientSize = New System.Drawing.Size(865, 463)
+        Me.Controls.Add(Me.ClearMsgList)
+        Me.Controls.Add(Me.MessageList)
         Me.Controls.Add(Me.InsertMention)
         Me.Controls.Add(Me.UserList)
         Me.Controls.Add(Me.ReloadBot)
@@ -141,7 +162,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MessageBox)
         Me.Controls.Add(Me.SendMessage)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Bot Gui 1.0.1"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -160,4 +181,6 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents UserList As ListBox
     Friend WithEvents InsertMention As Button
+    Friend WithEvents MessageList As ListBox
+    Friend WithEvents ClearMsgList As Button
 End Class
