@@ -112,4 +112,24 @@ Public Class Form1
         ''inserts the mention markup into the current position on the messageBox
         MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
     End Sub
+
+
+    Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
+        ''listen to messages thats received and adds the content to the listbox,
+        ''uses invoke to be able to alter the control otherwise a cross thread exptions is raised
+        MessageList.Invoke(Sub()
+                               If msg.Channel.Id = ChannelList.SelectedItem.id Then
+                                   MessageList.Items.Add(msg.Author.Username & ":" & msg.Content)
+                               End If
+                           End Sub)
+
+
+
+    End Function
+    ''clears the message list from messages
+    Private Sub ClearMsgList_Click(sender As Object, e As EventArgs) Handles ClearMsgList.Click
+        MessageList.Invoke(Sub()
+                               MessageList.Items.Clear()
+                           End Sub)
+    End Sub
 End Class
