@@ -7,7 +7,6 @@ Imports System.Linq
 
 Public Class Form1
     Dim WithEvents DiscordBot As New DiscordSocketClient
-    Dim msgArray As Array
 
 
     Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -41,6 +40,7 @@ Public Class Form1
         ''When an item is selecten inside guild list, this will update the channel list and fill it with the textchannels inside that guild
         ''in here the channels are stored as object inside the listbox
         ChannelList.Items.Clear()
+        UserList.Items.Clear()
         Dim client = DiscordBot.Guilds
         Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
@@ -48,6 +48,9 @@ Public Class Form1
 
         For Each channel In guild.TextChannels
             ChannelList.Items.Add(channel)
+        Next
+        For Each member In guild.Users
+            UserList.Items.Add(member)
         Next
     End Sub
     Private Function FillGuild()
@@ -85,9 +88,6 @@ Public Class Form1
             MsgBox(ex.Message)
 
         End Try
-
-
-
         TokenInput.Text = My.Settings.token
     End Function
 
@@ -101,7 +101,6 @@ Public Class Form1
         End Try
     End Function
 
-
     Private Sub MessageBox_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageBox.KeyDown
         ''sends the message when ENTER key is pressed
         If e.KeyCode = 13 Then
@@ -109,6 +108,8 @@ Public Class Form1
         End If
     End Sub
 
-
-
+    Private Sub InsertMention_Click(sender As Object, e As EventArgs) Handles InsertMention.Click
+        ''inserts the mention markup into the current position on the messageBox
+        MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
+    End Sub
 End Class
