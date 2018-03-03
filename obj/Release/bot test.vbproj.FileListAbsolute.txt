@@ -1,7 +1,3 @@
-C:\Users\jim\source\repos\bot test\bot test\bin\Release\bot test.exe.config
-C:\Users\jim\source\repos\bot test\bot test\bin\Release\bot test.exe
-C:\Users\jim\source\repos\bot test\bot test\bin\Release\bot test.pdb
-C:\Users\jim\source\repos\bot test\bot test\bin\Release\bot test.xml
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\Microsoft.Win32.Primitives.dll
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\netstandard.dll
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\System.AppContext.dll
@@ -126,12 +122,16 @@ C:\Users\jim\source\repos\bot test\bot test\bin\Release\Newtonsoft.Json.xml
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\System.Collections.Immutable.xml
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\System.Diagnostics.DiagnosticSource.xml
 C:\Users\jim\source\repos\bot test\bot test\bin\Release\System.Interactive.Async.xml
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.exe.config
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot_test.Form1.resources
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot_test.Resources.resources
 C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.vbproj.GenerateResource.Cache
 C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.vbproj.CoreCompileInputs.cache
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.exe
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.xml
-C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.pdb
 C:\Users\jim\source\repos\bot test\bot test\obj\Release\bot test.vbprojResolveAssemblyReference.cache
+C:\Users\jim\source\repos\bot test\bot test\bin\Release\DiscordGUI.net.exe.config
+C:\Users\jim\source\repos\bot test\bot test\bin\Release\DiscordGUI.net.exe
+C:\Users\jim\source\repos\bot test\bot test\bin\Release\DiscordGUI.net.pdb
+C:\Users\jim\source\repos\bot test\bot test\bin\Release\DiscordGUI.net.xml
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.exe.config
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.Form1.resources
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.Resources.resources
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.exe
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.xml
+C:\Users\jim\source\repos\bot test\bot test\obj\Release\DiscordGUI.net.pdb

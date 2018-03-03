@@ -76,9 +76,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.bot_test.My.MySettings
+        Friend ReadOnly Property Settings() As Global.DiscordGUI.net.My.MySettings
             Get
-                Return Global.bot_test.My.MySettings.Default
+                Return Global.DiscordGUI.net.My.MySettings.Default
             End Get
         End Property
     End Module

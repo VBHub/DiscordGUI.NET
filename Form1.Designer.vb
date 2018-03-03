@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class GUI
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -36,6 +36,10 @@ Partial Class Form1
         Me.InsertMention = New System.Windows.Forms.Button()
         Me.MessageList = New System.Windows.Forms.ListBox()
         Me.ClearMsgList = New System.Windows.Forms.Button()
+        Me.OpenFile = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.KickUser = New System.Windows.Forms.Button()
+        Me.BanUser = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,6 +65,7 @@ Partial Class Form1
         Me.ChannelList.Location = New System.Drawing.Point(241, 12)
         Me.ChannelList.Name = "ChannelList"
         Me.ChannelList.Size = New System.Drawing.Size(200, 212)
+        Me.ChannelList.Sorted = True
         Me.ChannelList.TabIndex = 4
         '
         'GuildList
@@ -69,6 +74,7 @@ Partial Class Form1
         Me.GuildList.Location = New System.Drawing.Point(6, 12)
         Me.GuildList.Name = "GuildList"
         Me.GuildList.Size = New System.Drawing.Size(227, 212)
+        Me.GuildList.Sorted = True
         Me.GuildList.TabIndex = 7
         '
         'Refresh
@@ -116,6 +122,7 @@ Partial Class Form1
         Me.UserList.Location = New System.Drawing.Point(447, 12)
         Me.UserList.Name = "UserList"
         Me.UserList.Size = New System.Drawing.Size(148, 212)
+        Me.UserList.Sorted = True
         Me.UserList.TabIndex = 12
         '
         'InsertMention
@@ -130,9 +137,11 @@ Partial Class Form1
         'MessageList
         '
         Me.MessageList.FormattingEnabled = True
+        Me.MessageList.HorizontalScrollbar = True
         Me.MessageList.Location = New System.Drawing.Point(601, 12)
+        Me.MessageList.MultiColumn = True
         Me.MessageList.Name = "MessageList"
-        Me.MessageList.Size = New System.Drawing.Size(222, 446)
+        Me.MessageList.Size = New System.Drawing.Size(252, 446)
         Me.MessageList.TabIndex = 14
         '
         'ClearMsgList
@@ -144,11 +153,41 @@ Partial Class Form1
         Me.ClearMsgList.Text = "Clear Messages"
         Me.ClearMsgList.UseVisualStyleBackColor = True
         '
-        'Form1
+        'OpenFile
+        '
+        Me.OpenFile.Location = New System.Drawing.Point(298, 356)
+        Me.OpenFile.Name = "OpenFile"
+        Me.OpenFile.Size = New System.Drawing.Size(75, 23)
+        Me.OpenFile.TabIndex = 16
+        Me.OpenFile.Text = "Send File"
+        Me.OpenFile.UseVisualStyleBackColor = True
+        '
+        'KickUser
+        '
+        Me.KickUser.Location = New System.Drawing.Point(470, 269)
+        Me.KickUser.Name = "KickUser"
+        Me.KickUser.Size = New System.Drawing.Size(108, 23)
+        Me.KickUser.TabIndex = 17
+        Me.KickUser.Text = "Kick User"
+        Me.KickUser.UseVisualStyleBackColor = True
+        '
+        'BanUser
+        '
+        Me.BanUser.Location = New System.Drawing.Point(470, 298)
+        Me.BanUser.Name = "BanUser"
+        Me.BanUser.Size = New System.Drawing.Size(108, 27)
+        Me.BanUser.TabIndex = 18
+        Me.BanUser.Text = "Ban User"
+        Me.BanUser.UseVisualStyleBackColor = True
+        '
+        'GUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(865, 463)
+        Me.Controls.Add(Me.BanUser)
+        Me.Controls.Add(Me.KickUser)
+        Me.Controls.Add(Me.OpenFile)
         Me.Controls.Add(Me.ClearMsgList)
         Me.Controls.Add(Me.MessageList)
         Me.Controls.Add(Me.InsertMention)
@@ -161,7 +200,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ChannelList)
         Me.Controls.Add(Me.MessageBox)
         Me.Controls.Add(Me.SendMessage)
-        Me.Name = "Form1"
+        Me.Name = "GUI"
         Me.Text = "Bot Gui 1.0.1"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -183,4 +222,8 @@ Partial Class Form1
     Friend WithEvents InsertMention As Button
     Friend WithEvents MessageList As ListBox
     Friend WithEvents ClearMsgList As Button
+    Friend WithEvents OpenFile As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents KickUser As Button
+    Friend WithEvents BanUser As Button
 End Class
