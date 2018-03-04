@@ -87,7 +87,20 @@ Public Class GUI
         Dim reason As String = InputBox("what is the reason for the kick?")
         guild.AddBanAsync(UserList.SelectedItem.id, 7, reason)
     End Sub
+    Private Sub OpenChatViewer_Click(sender As Object, e As EventArgs) Handles OpenChatViewer.Click
+        ChatViewer.Show()
+    End Sub
+    ''send a DM
+    Private Async Sub SendDm_Click_1(sender As Object, e As EventArgs) Handles SendDm.Click
 
+        Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
+        Await dmChannel.SendMessageAsync(MessageBox.Text)
+        MessageBox.Text = ""
+    End Sub
+    ''opens message window
+    Private Sub ChatViewer_Click(sender As Object, e As EventArgs) Handles OpenChatViewer.Click
+        ChatViewer.Show()
+    End Sub
     ''__________________________Function Section___________________________________________________________
 
     Private Function FillGuild()
@@ -135,12 +148,6 @@ Public Class GUI
     End Function
 
 
-    ''clears the message list from messages
-    Private Sub ClearMsgList_Click(sender As Object, e As EventArgs) Handles ClearMsgList.Click
-        MessageList.Invoke(Sub()
-                               MessageList.Items.Clear()
-                           End Sub)
-    End Sub
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles OpenFile.Click
 
         OpenFileDialog1.ShowDialog()
@@ -151,16 +158,23 @@ Public Class GUI
     Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
         ''listen to messages thats received and adds the content to the listbox,
         ''uses invoke to be able to alter the control otherwise a cross thread exptions is raised
-        MessageList.Invoke(Sub()
-                               Try
-                                   If msg.Channel.Id = ChannelList.SelectedItem.id Then
-                                       MessageList.Items.Add(msg.Author.Username & ":" & msg.Content)
-                                   End If
-                               Catch ex As Exception
+        MessageBox.Invoke(Sub()
+                              Try
+                                  If msg.Channel.Id = ChannelList.SelectedItem.id Then
+                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                  End If
+                              Catch ex As Exception
 
-                               End Try
+                              End Try
+                              Try
+                                  If TypeOf msg.Channel Is Discord.IDMChannel Then
+                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                  End If
+                              Catch ex As Exception
 
-                           End Sub)
+                              End Try
+
+                          End Sub)
 
 
 

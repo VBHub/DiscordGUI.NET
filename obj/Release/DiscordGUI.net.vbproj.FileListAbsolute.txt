@@ -135,3 +135,4 @@ C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.vbp
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.exe
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.xml
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.pdb
+C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.ChatViewer.resources

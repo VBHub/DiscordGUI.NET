@@ -23,6 +23,7 @@ Partial Class GUI
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GUI))
         Me.SendMessage = New System.Windows.Forms.Button()
         Me.MessageBox = New System.Windows.Forms.TextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
@@ -34,18 +35,18 @@ Partial Class GUI
         Me.ReloadBot = New System.Windows.Forms.Button()
         Me.UserList = New System.Windows.Forms.ListBox()
         Me.InsertMention = New System.Windows.Forms.Button()
-        Me.MessageList = New System.Windows.Forms.ListBox()
-        Me.ClearMsgList = New System.Windows.Forms.Button()
         Me.OpenFile = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.KickUser = New System.Windows.Forms.Button()
         Me.BanUser = New System.Windows.Forms.Button()
+        Me.OpenChatViewer = New System.Windows.Forms.Button()
+        Me.SendDm = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SendMessage
         '
-        Me.SendMessage.Location = New System.Drawing.Point(241, 311)
+        Me.SendMessage.Location = New System.Drawing.Point(151, 324)
         Me.SendMessage.Name = "SendMessage"
         Me.SendMessage.Size = New System.Drawing.Size(208, 27)
         Me.SendMessage.TabIndex = 0
@@ -54,7 +55,7 @@ Partial Class GUI
         '
         'MessageBox
         '
-        Me.MessageBox.Location = New System.Drawing.Point(241, 285)
+        Me.MessageBox.Location = New System.Drawing.Point(151, 298)
         Me.MessageBox.Name = "MessageBox"
         Me.MessageBox.Size = New System.Drawing.Size(208, 20)
         Me.MessageBox.TabIndex = 2
@@ -134,28 +135,9 @@ Partial Class GUI
         Me.InsertMention.Text = "Insert Mention"
         Me.InsertMention.UseVisualStyleBackColor = True
         '
-        'MessageList
-        '
-        Me.MessageList.FormattingEnabled = True
-        Me.MessageList.HorizontalScrollbar = True
-        Me.MessageList.Location = New System.Drawing.Point(601, 12)
-        Me.MessageList.MultiColumn = True
-        Me.MessageList.Name = "MessageList"
-        Me.MessageList.Size = New System.Drawing.Size(252, 446)
-        Me.MessageList.TabIndex = 14
-        '
-        'ClearMsgList
-        '
-        Me.ClearMsgList.Location = New System.Drawing.Point(474, 395)
-        Me.ClearMsgList.Name = "ClearMsgList"
-        Me.ClearMsgList.Size = New System.Drawing.Size(121, 23)
-        Me.ClearMsgList.TabIndex = 15
-        Me.ClearMsgList.Text = "Clear Messages"
-        Me.ClearMsgList.UseVisualStyleBackColor = True
-        '
         'OpenFile
         '
-        Me.OpenFile.Location = New System.Drawing.Point(298, 356)
+        Me.OpenFile.Location = New System.Drawing.Point(208, 369)
         Me.OpenFile.Name = "OpenFile"
         Me.OpenFile.Size = New System.Drawing.Size(75, 23)
         Me.OpenFile.TabIndex = 16
@@ -164,7 +146,7 @@ Partial Class GUI
         '
         'KickUser
         '
-        Me.KickUser.Location = New System.Drawing.Point(470, 269)
+        Me.KickUser.Location = New System.Drawing.Point(470, 285)
         Me.KickUser.Name = "KickUser"
         Me.KickUser.Size = New System.Drawing.Size(108, 23)
         Me.KickUser.TabIndex = 17
@@ -173,23 +155,41 @@ Partial Class GUI
         '
         'BanUser
         '
-        Me.BanUser.Location = New System.Drawing.Point(470, 298)
+        Me.BanUser.Location = New System.Drawing.Point(470, 314)
         Me.BanUser.Name = "BanUser"
         Me.BanUser.Size = New System.Drawing.Size(108, 27)
         Me.BanUser.TabIndex = 18
         Me.BanUser.Text = "Ban User"
         Me.BanUser.UseVisualStyleBackColor = True
         '
+        'OpenChatViewer
+        '
+        Me.OpenChatViewer.Location = New System.Drawing.Point(194, 261)
+        Me.OpenChatViewer.Name = "OpenChatViewer"
+        Me.OpenChatViewer.Size = New System.Drawing.Size(117, 31)
+        Me.OpenChatViewer.TabIndex = 19
+        Me.OpenChatViewer.Text = "Open Chat Viewer"
+        Me.OpenChatViewer.UseVisualStyleBackColor = True
+        '
+        'SendDm
+        '
+        Me.SendDm.Location = New System.Drawing.Point(470, 256)
+        Me.SendDm.Name = "SendDm"
+        Me.SendDm.Size = New System.Drawing.Size(108, 23)
+        Me.SendDm.TabIndex = 20
+        Me.SendDm.Text = "Send DM"
+        Me.SendDm.UseVisualStyleBackColor = True
+        '
         'GUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(865, 463)
+        Me.ClientSize = New System.Drawing.Size(610, 463)
+        Me.Controls.Add(Me.SendDm)
+        Me.Controls.Add(Me.OpenChatViewer)
         Me.Controls.Add(Me.BanUser)
         Me.Controls.Add(Me.KickUser)
         Me.Controls.Add(Me.OpenFile)
-        Me.Controls.Add(Me.ClearMsgList)
-        Me.Controls.Add(Me.MessageList)
         Me.Controls.Add(Me.InsertMention)
         Me.Controls.Add(Me.UserList)
         Me.Controls.Add(Me.ReloadBot)
@@ -200,6 +200,7 @@ Partial Class GUI
         Me.Controls.Add(Me.ChannelList)
         Me.Controls.Add(Me.MessageBox)
         Me.Controls.Add(Me.SendMessage)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "GUI"
         Me.Text = "Bot Gui 1.0.1"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -220,10 +221,10 @@ Partial Class GUI
     Friend WithEvents Label1 As Label
     Friend WithEvents UserList As ListBox
     Friend WithEvents InsertMention As Button
-    Friend WithEvents MessageList As ListBox
-    Friend WithEvents ClearMsgList As Button
     Friend WithEvents OpenFile As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents KickUser As Button
     Friend WithEvents BanUser As Button
+    Friend WithEvents OpenChatViewer As Button
+    Friend WithEvents SendDm As Button
 End Class
