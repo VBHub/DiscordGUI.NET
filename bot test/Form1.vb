@@ -26,7 +26,7 @@ Public Class GUI
         sendMsg()
     End Sub
 
-    Private Sub refresh_Click(sender As Object, e As EventArgs) Handles Refresh.Click
+    Private Sub refreshGuild_Click(sender As Object, e As EventArgs) Handles RefreshGuild.Click
         ''refresh/updates the guild list
         FillGuild()
     End Sub
@@ -37,21 +37,16 @@ Public Class GUI
         ChannelList.Items.Clear()
         UserList.Items.Clear()
         Dim client = DiscordBot.Guilds
+        Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim guild = DiscordBot.GetGuild(channelObj.Id)
 
-        Try
-            Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
-            Dim guild = DiscordBot.GetGuild(channelObj.Id)
-            For Each channel In guild.TextChannels
-                ChannelList.Items.Add(channel)
-            Next
+        For Each channel In guild.TextChannels
+            ChannelList.Items.Add(channel)
+        Next
 
-            For Each member In guild.Users
-                UserList.Items.Add(member)
-            Next
-        Catch ex As InvalidOperationException
-        End Try
-
-
+        For Each member In guild.Users
+            UserList.Items.Add(member)
+        Next
     End Sub
 
     Private Sub SaveToken_Click(sender As Object, e As EventArgs) Handles SaveToken.Click
