@@ -185,7 +185,7 @@ Public Class GUI
                           End Sub)
 
         Try
-            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id Then
+            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
                 MsgBox(msg.Author.Username & ": " & msg.Content, Title:="you got mentioned in " & msg.Channel.Name)
 
             End If
