@@ -103,7 +103,7 @@ Public Class GUI
     End Sub
     ''__________________________Function Section___________________________________________________________
 
-    Private Function FillGuild()
+    Private Sub FillGuild()
         ''this function scans and add all the guilds the bot is memeber of, and store the NAMES as strings (not objects as with channels) inside the guild listbox
         GuildList.Items.Clear()
         Dim client = DiscordBot.Guilds
@@ -114,10 +114,10 @@ Public Class GUI
         Catch ex As Exception
         End Try
 
-    End Function
+    End Sub
 
 
-    Private Function startup()
+    Private Sub startup()
         ''this is the function that login the bot and start it
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
@@ -130,14 +130,14 @@ Public Class GUI
 
         End Try
         TokenInput.Text = My.Settings.token
-    End Function
+    End Sub
 
 
 
 
 
 
-    Private Function sendMsg()
+    Private Sub sendMsg()
         ''function to send a the message
         Try
             ChannelList.SelectedItem.SendMessageAsync(MessageBox.Text)
@@ -145,7 +145,7 @@ Public Class GUI
         Catch ex As Exception
             MsgBox("you must select a channel ID in the box")
         End Try
-    End Function
+    End Sub
 
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles OpenFile.Click
@@ -188,11 +188,11 @@ Public Class GUI
 
     End Function
 
-    Private Function SendFile(path)
+    Sub SendFile(path)
         ''casts the channel object from channel list to IMessageChannel
         Dim channel As Discord.IMessageChannel = TryCast(ChannelList.SelectedItem, Discord.IMessageChannel)
         channel.SendFileAsync(path)
-    End Function
+    End Sub
 
 
 End Class

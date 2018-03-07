@@ -184,7 +184,7 @@ Partial Class GUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(610, 424)
+        Me.ClientSize = New System.Drawing.Size(610, 457)
         Me.Controls.Add(Me.SendDm)
         Me.Controls.Add(Me.OpenChatViewer)
         Me.Controls.Add(Me.BanUser)
