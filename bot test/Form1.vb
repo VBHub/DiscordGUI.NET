@@ -92,10 +92,13 @@ Public Class GUI
     End Sub
     ''send a DM
     Private Async Sub SendDm_Click_1(sender As Object, e As EventArgs) Handles SendDm.Click
-
-        Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
-        Await dmChannel.SendMessageAsync(MessageBox.Text)
-        MessageBox.Text = ""
+        Try
+            Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
+            Await dmChannel.SendMessageAsync(MessageBox.Text)
+            MessageBox.Text = ""
+        Catch ex As Exception
+            MsgBox("You need to select a User to send DM to")
+        End Try
     End Sub
     ''opens message window
     Private Sub ChatViewer_Click(sender As Object, e As EventArgs) Handles OpenChatViewer.Click
