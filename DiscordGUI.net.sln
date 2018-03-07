@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DiscordGUI.net", "bot test\DiscordGUI.net.vbproj", "{A441D3A6-E958-4387-AFC4-021FA2E4E1F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A441D3A6-E958-4387-AFC4-021FA2E4E1F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A441D3A6-E958-4387-AFC4-021FA2E4E1F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A441D3A6-E958-4387-AFC4-021FA2E4E1F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A441D3A6-E958-4387-AFC4-021FA2E4E1F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BFDA8B2-1972-4D2A-BEF3-DB644FF82BB4}
+	EndGlobalSection
+EndGlobal
