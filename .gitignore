@@ -1,2 +1,3 @@
-bot test\bin
-.vs
+.vs/
+bot test/bin/
+bot test/obj/

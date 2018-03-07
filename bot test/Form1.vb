@@ -26,7 +26,7 @@ Public Class GUI
         sendMsg()
     End Sub
 
-    Private Sub refresh_Click(sender As Object, e As EventArgs) Handles Refresh.Click
+    Private Sub refreshGuild_Click(sender As Object, e As EventArgs) Handles RefreshGuild.Click
         ''refresh/updates the guild list
         FillGuild()
     End Sub
@@ -37,16 +37,21 @@ Public Class GUI
         ChannelList.Items.Clear()
         UserList.Items.Clear()
         Dim client = DiscordBot.Guilds
-        Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
-        Dim guild = DiscordBot.GetGuild(channelObj.Id)
 
-        For Each channel In guild.TextChannels
-            ChannelList.Items.Add(channel)
-        Next
+        Try
+            Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
+            Dim guild = DiscordBot.GetGuild(channelObj.Id)
+            For Each channel In guild.TextChannels
+                ChannelList.Items.Add(channel)
+            Next
 
-        For Each member In guild.Users
-            UserList.Items.Add(member)
-        Next
+            For Each member In guild.Users
+                UserList.Items.Add(member)
+            Next
+        Catch ex As InvalidOperationException
+        End Try
+
+
     End Sub
 
     Private Sub SaveToken_Click(sender As Object, e As EventArgs) Handles SaveToken.Click
@@ -106,7 +111,7 @@ Public Class GUI
     End Sub
     ''__________________________Function Section___________________________________________________________
 
-    Private Function FillGuild()
+    Private Sub FillGuild()
         ''this function scans and add all the guilds the bot is memeber of, and store the NAMES as strings (not objects as with channels) inside the guild listbox
         GuildList.Items.Clear()
         Dim client = DiscordBot.Guilds
@@ -117,10 +122,10 @@ Public Class GUI
         Catch ex As Exception
         End Try
 
-    End Function
+    End Sub
 
 
-    Private Function startup()
+    Private Sub startup()
         ''this is the function that login the bot and start it
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
@@ -133,14 +138,14 @@ Public Class GUI
 
         End Try
         TokenInput.Text = My.Settings.token
-    End Function
+    End Sub
 
 
 
 
 
 
-    Private Function sendMsg()
+    Private Sub sendMsg()
         ''function to send a the message
         Try
             ChannelList.SelectedItem.SendMessageAsync(MessageBox.Text)
@@ -148,7 +153,7 @@ Public Class GUI
         Catch ex As Exception
             MsgBox("you must select a channel ID in the box")
         End Try
-    End Function
+    End Sub
 
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles OpenFile.Click
@@ -180,7 +185,7 @@ Public Class GUI
                           End Sub)
 
         Try
-            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id Then
+            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
                 MsgBox(msg.Author.Username & ": " & msg.Content, Title:="you got mentioned in " & msg.Channel.Name)
 
             End If
@@ -191,11 +196,11 @@ Public Class GUI
 
     End Function
 
-    Private Function SendFile(path)
+    Sub SendFile(path)
         ''casts the channel object from channel list to IMessageChannel
         Dim channel As Discord.IMessageChannel = TryCast(ChannelList.SelectedItem, Discord.IMessageChannel)
         channel.SendFileAsync(path)
-    End Function
+    End Sub
 
 
 End Class
