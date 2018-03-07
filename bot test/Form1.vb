@@ -26,7 +26,7 @@ Public Class GUI
         sendMsg()
     End Sub
 
-    Private Sub refresh_Click(sender As Object, e As EventArgs) Handles Refresh.Click
+    Private Sub refreshGuild_Click(sender As Object, e As EventArgs) Handles RefreshGuild.Click
         ''refresh/updates the guild list
         FillGuild()
     End Sub

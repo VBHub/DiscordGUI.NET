@@ -28,7 +28,7 @@ Partial Class GUI
         Me.MessageBox = New System.Windows.Forms.TextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.GuildList = New System.Windows.Forms.ListBox()
-        Me.Refresh = New System.Windows.Forms.Button()
+        Me.RefreshGuild = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.TokenInput = New System.Windows.Forms.TextBox()
         Me.SaveToken = New System.Windows.Forms.Button()
@@ -78,14 +78,14 @@ Partial Class GUI
         Me.GuildList.Sorted = True
         Me.GuildList.TabIndex = 7
         '
-        'Refresh
+        'RefreshGuild
         '
-        Me.Refresh.Location = New System.Drawing.Point(71, 230)
-        Me.Refresh.Name = "Refresh"
-        Me.Refresh.Size = New System.Drawing.Size(107, 23)
-        Me.Refresh.TabIndex = 8
-        Me.Refresh.Text = "Refresh Guild List"
-        Me.Refresh.UseVisualStyleBackColor = True
+        Me.RefreshGuild.Location = New System.Drawing.Point(71, 230)
+        Me.RefreshGuild.Name = "RefreshGuild"
+        Me.RefreshGuild.Size = New System.Drawing.Size(107, 23)
+        Me.RefreshGuild.TabIndex = 8
+        Me.RefreshGuild.Text = "Refresh Guild List"
+        Me.RefreshGuild.UseVisualStyleBackColor = True
         '
         'ErrorProvider1
         '
@@ -195,7 +195,7 @@ Partial Class GUI
         Me.Controls.Add(Me.ReloadBot)
         Me.Controls.Add(Me.SaveToken)
         Me.Controls.Add(Me.TokenInput)
-        Me.Controls.Add(Me.Refresh)
+        Me.Controls.Add(Me.RefreshGuild)
         Me.Controls.Add(Me.GuildList)
         Me.Controls.Add(Me.ChannelList)
         Me.Controls.Add(Me.MessageBox)
@@ -213,7 +213,7 @@ Partial Class GUI
     Friend WithEvents MessageBox As TextBox
     Friend WithEvents ChannelList As ListBox
     Friend WithEvents GuildList As ListBox
-    Friend WithEvents Refresh As Button
+    Friend WithEvents RefreshGuild As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents SaveToken As Button
     Friend WithEvents TokenInput As TextBox
