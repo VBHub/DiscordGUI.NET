@@ -37,16 +37,21 @@ Public Class GUI
         ChannelList.Items.Clear()
         UserList.Items.Clear()
         Dim client = DiscordBot.Guilds
-        Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
-        Dim guild = DiscordBot.GetGuild(channelObj.Id)
 
-        For Each channel In guild.TextChannels
-            ChannelList.Items.Add(channel)
-        Next
+        Try
+            Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
+            Dim guild = DiscordBot.GetGuild(channelObj.Id)
+            For Each channel In guild.TextChannels
+                ChannelList.Items.Add(channel)
+            Next
 
-        For Each member In guild.Users
-            UserList.Items.Add(member)
-        Next
+            For Each member In guild.Users
+                UserList.Items.Add(member)
+            Next
+        Catch ex As InvalidOperationException
+        End Try
+
+
     End Sub
 
     Private Sub SaveToken_Click(sender As Object, e As EventArgs) Handles SaveToken.Click
