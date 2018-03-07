@@ -186,8 +186,8 @@ Public Class GUI
 
         Try
             If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
-                MsgBox(msg.Author.Username & ": " & msg.Content, Title:="you got mentioned in " & msg.Channel.Name)
-
+                Dim content = msg.Content.Replace("<@" & DiscordBot.CurrentUser.Id.ToString & ">", "@" & DiscordBot.CurrentUser.Username)
+                MsgBox(msg.Author.Username & ": " & content, Title:="you got mentioned in " & msg.Channel.Name)
             End If
         Catch ex As Exception
 
