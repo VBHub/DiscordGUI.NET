@@ -52,6 +52,7 @@ Partial Class MainWindow
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -232,30 +233,30 @@ Partial Class MainWindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 114)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 92)
         '
         'InsertMentionToolStripMenuItem
         '
         Me.InsertMentionToolStripMenuItem.Name = "InsertMentionToolStripMenuItem"
-        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.InsertMentionToolStripMenuItem.Text = "Insert Mention"
         '
         'SendDMToolStripMenuItem
         '
         Me.SendDMToolStripMenuItem.Name = "SendDMToolStripMenuItem"
-        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.SendDMToolStripMenuItem.Text = "Send DM"
         '
         'KickUserToolStripMenuItem
         '
         Me.KickUserToolStripMenuItem.Name = "KickUserToolStripMenuItem"
-        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.KickUserToolStripMenuItem.Text = "Kick User"
         '
         'BanUserToolStripMenuItem
         '
         Me.BanUserToolStripMenuItem.Name = "BanUserToolStripMenuItem"
-        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
         'ImageList1
@@ -291,10 +292,19 @@ Partial Class MainWindow
         Me.PictureBox1.Image = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
         Me.PictureBox1.Location = New System.Drawing.Point(485, 354)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(227, 175)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.Size = New System.Drawing.Size(172, 172)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(362, 376)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(66, 28)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'MainWindow
         '
@@ -302,6 +312,7 @@ Partial Class MainWindow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(724, 531)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox11)
@@ -360,4 +371,5 @@ Partial Class MainWindow
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenSettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button1 As Button
 End Class

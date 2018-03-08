@@ -142,10 +142,13 @@ Public Class MainWindow
         Try
             DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
             DiscordBot.StartAsync()
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
 
         End Try
+
     End Sub
 
 
@@ -186,6 +189,21 @@ Public Class MainWindow
         Next
         Return content
     End Function
+
+
+
+
+    Private Function onReady() As Task Handles DiscordBot.Ready
+        PictureBox1.Invoke(Sub()
+                               PictureBox1.Load(DiscordBot.CurrentUser.GetAvatarUrl)
+                           End Sub)
+
+
+
+    End Function
+
+
+
 
 
     Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
@@ -293,6 +311,4 @@ Public Class MainWindow
 
         End If
     End Sub
-
-
 End Class
