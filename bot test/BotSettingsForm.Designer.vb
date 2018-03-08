@@ -42,6 +42,7 @@ Partial Class BotSettingsForm
         Me.TokenInput.Name = "TokenInput"
         Me.TokenInput.Size = New System.Drawing.Size(338, 20)
         Me.TokenInput.TabIndex = 0
+        Me.TokenInput.UseSystemPasswordChar = True
         '
         'SaveToken
         '

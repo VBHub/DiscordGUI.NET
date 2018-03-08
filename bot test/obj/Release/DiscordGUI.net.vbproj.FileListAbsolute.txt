@@ -128,7 +128,6 @@ C:\Users\jim\source\repos\DiscordGUI.net\bot test\bin\Release\System.Diagnostics
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\bin\Release\System.Interactive.Async.xml
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.vbprojResolveAssemblyReference.cache
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.exe.config
-C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.GUI.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.Resources.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.vbproj.GenerateResource.Cache
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.vbproj.CoreCompileInputs.cache
@@ -136,3 +135,5 @@ C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.exe
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.xml
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.pdb
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.ChatViewer.resources
+C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.BotSettingsForm.resources
+C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Release\DiscordGUI.net.MainWindow.resources

@@ -48,10 +48,12 @@ Partial Class MainWindow
         Me.KickUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BanUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -62,6 +64,7 @@ Partial Class MainWindow
         Me.GroupBox11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -263,17 +266,6 @@ Partial Class MainWindow
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
-        'GroupBox4
-        '
-        Me.GroupBox4.BackgroundImage = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
-        Me.GroupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.GroupBox4.Location = New System.Drawing.Point(452, 309)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(240, 217)
-        Me.GroupBox4.TabIndex = 30
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
-        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
@@ -296,14 +288,45 @@ Partial Class MainWindow
         Me.OpenSettingsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.OpenSettingsToolStripMenuItem.Text = "Open Settings"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
+        Me.PictureBox1.Location = New System.Drawing.Point(485, 354)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(172, 172)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 32
+        Me.PictureBox1.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(485, 318)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(65, 13)
+        Me.Label2.TabIndex = 33
+        Me.Label2.Text = "Current bot: "
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label3.Location = New System.Drawing.Point(485, 336)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 34
+        Me.Label3.Text = "Status:"
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(724, 531)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox8)
@@ -325,6 +348,7 @@ Partial Class MainWindow
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -355,8 +379,10 @@ Partial Class MainWindow
     Friend WithEvents KickUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BanUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenSettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class
