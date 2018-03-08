@@ -146,9 +146,8 @@ Public Class MainWindow
         End Try
     End Sub
 
-<<<<<<< HEAD
-=======
-    public Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
+
+    Public Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
         If IsNothing(StreamURL_LeaveNULL_If_Not) Then
             DiscordBot.SetGameAsync(PlayingGame, StreamURL_LeaveNULL_If_Not)
         Else
@@ -159,7 +158,7 @@ Public Class MainWindow
 
 
 
->>>>>>> b1571aebd43c401353901a81fca09b3a1d47bd70
+
     Private Sub sendMsg()
         ''function to send a the message
         Try
