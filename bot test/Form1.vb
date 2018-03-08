@@ -246,7 +246,8 @@ Public Class MainWindow
 
         Try
             If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
-                MsgBox(msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned in " & msg.Channel.Name)
+                Dim GuildName = DirectCast(msg.Channel, Discord.WebSocket.SocketGuildChannel).Guild
+                MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
             End If
         Catch ex As Exception
 
