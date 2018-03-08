@@ -108,6 +108,8 @@ Public Class MainWindow
             Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
             Await dmChannel.SendMessageAsync(MessageBox.Text)
             MessageBox.Text = ""
+        Catch ex As ArgumentException
+            MsgBox("Message cannot be empty")
         Catch ex As Exception
             MsgBox("You need to select a User to send DM to")
         End Try
