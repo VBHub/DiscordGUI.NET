@@ -23,6 +23,7 @@ Public Class MainWindow
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
+        Label3.Text = "Status: starting up"
         startup()
 
 
@@ -134,15 +135,29 @@ Public Class MainWindow
     End Sub
 
 
-    Public Sub startup()
+    Public Async Sub startup()
         ''this is the function that login the bot and start it
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
         })
         Try
-            DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
-            DiscordBot.StartAsync()
+            Label3.ForeColor = Color.Red
+            Label3.Text = "Status: login in"
+            Try
+                Await DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
+            Catch ex As Exception
+                Dim ErrorValue = DirectCast(ex, Discord.Net.HttpException).HttpCode
+                If ErrorValue = 401 Then
+                    Label3.ForeColor = Color.Red
+                    Label3.Text = "Status: Invalid Token"
+                    Return
+                End If
 
+            End Try
+
+            Label3.ForeColor = Color.Orange
+            Label3.Text = "Status: starting bot"
+            DiscordBot.StartAsync()
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -195,7 +210,12 @@ Public Class MainWindow
 
     Private Function onReady() As Task Handles DiscordBot.Ready
         PictureBox1.Invoke(Sub()
+                               FillGuild()
                                PictureBox1.Load(DiscordBot.CurrentUser.GetAvatarUrl)
+                               Label2.Text = "Current bot: " & DiscordBot.CurrentUser.Username()
+                               Label3.Text = "Status: Ready to Rock and Roll"
+                               Label3.ForeColor = Color.Green
+
                            End Sub)
 
 
