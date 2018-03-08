@@ -286,7 +286,8 @@ Public Class MainWindow
             Await dmChannel.SendMessageAsync(MessageBox.Text)
             MessageBox.Text = ""
         Catch ex As Exception
-            MsgBox("You need to select a User to send DM to")
+            Dim ReasonValue = DirectCast(ex, Discord.Net.HttpException).Reason
+            MsgBox(ReasonValue)
         End Try
     End Sub
 
