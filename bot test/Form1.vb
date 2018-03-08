@@ -17,7 +17,7 @@ Imports System.ComponentModel
 Imports WebSocket4Net
 Imports System.Linq
 
-Public Class strurl_txt
+Public Class MainWindow
     Dim WithEvents DiscordBot As New DiscordSocketClient
 
 
@@ -66,13 +66,8 @@ Public Class strurl_txt
 
     End Sub
 
-    Private Sub SaveToken_Click(sender As Object, e As EventArgs) Handles SaveToken.Click
-        ''this is the save token function the token is stored
-        My.Settings.token = TokenInput.Text
-        My.Settings.Save()
-    End Sub
 
-    Private Sub ReloadBot_Click(sender As Object, e As EventArgs) Handles ReloadBot.Click
+    Private Sub ReloadBot_Click(sender As Object, e As EventArgs) 
         ''This re-runs the startup function, makeing it possible to switch bots without closeing and re-opening the program
         startup()
     End Sub
@@ -137,7 +132,7 @@ Public Class strurl_txt
     End Sub
 
 
-    Private Sub startup()
+    Public Sub startup()
         ''this is the function that login the bot and start it
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
@@ -149,7 +144,6 @@ Public Class strurl_txt
             MsgBox(ex.Message)
 
         End Try
-        TokenInput.Text = My.Settings.token
     End Sub
 
     Private Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
@@ -219,31 +213,7 @@ Public Class strurl_txt
         channel.SendFileAsync(path)
     End Sub
 
-    Private Sub GroupBox11_Enter(sender As Object, e As EventArgs) Handles GroupBox11.Enter
 
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        '' Sets the current playing message!
-        Dim pl_m As String = pl_txt.Text
-        Dim str_m As String = str_url.Text
-        If str_m = "" Then
-            UpdatePlayingStatus(pl_m, str_m)
-        Else
-            UpdatePlayingStatus(pl_m, Nothing)
-        End If
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If str_url.Text = "" And pl_txt.Text = "" Then
-            MsgBox("You must type a playing game name!", MsgBoxStyle.Critical, "Error")
-        ElseIf str_url.Text = "" And IsNothing(pl_txt.Text) = False Then
-            UpdatePlayingStatus(pl_txt.Text, Nothing)
-        Else
-            UpdatePlayingStatus(pl_txt.Text, str_url.Text)
-
-        End If
-    End Sub
 
 
     Private Sub UserList_MouseDown(sender As Object, e As MouseEventArgs) Handles UserList.MouseDown
@@ -286,5 +256,32 @@ Public Class strurl_txt
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
         Dim reason As String = InputBox("what is the reason for the kick?")
         guild.AddBanAsync(UserList.SelectedItem.id, 7, reason)
+    End Sub
+
+    Private Sub OpenSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSettingsToolStripMenuItem.Click
+        BotSettingsForm.Show()
+    End Sub
+    ''__________Get called from BotSettingsForm_________________
+
+    Public Sub SetPlayingStatus(inputText, inputUrl)
+        '' Sets the current playing message!
+        Dim pl_m As String = inputText
+        Dim str_m As String = inputUrl
+        If str_m = "" Then
+            UpdatePlayingStatus(pl_m, str_m)
+        Else
+            UpdatePlayingStatus(pl_m, Nothing)
+        End If
+    End Sub
+
+    Public Sub SetStreamStatus(inputText, inputUrl)
+        If inputUrl = "" And inputText = "" Then
+            MsgBox("You must type a playing game name!", MsgBoxStyle.Critical, "Error")
+        ElseIf inputUrl = "" And IsNothing(inputText) = False Then
+            UpdatePlayingStatus(inputText, Nothing)
+        Else
+            UpdatePlayingStatus(inputText, inputUrl)
+
+        End If
     End Sub
 End Class

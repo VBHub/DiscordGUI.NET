@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class strurl_txt
+Partial Class MainWindow
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,16 +23,13 @@ Partial Class strurl_txt
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(strurl_txt))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWindow))
         Me.SendMessage = New System.Windows.Forms.Button()
         Me.MessageBox = New System.Windows.Forms.TextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.GuildList = New System.Windows.Forms.ListBox()
         Me.RefreshGuild = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.TokenInput = New System.Windows.Forms.TextBox()
-        Me.SaveToken = New System.Windows.Forms.Button()
-        Me.ReloadBot = New System.Windows.Forms.Button()
         Me.UserList = New System.Windows.Forms.ListBox()
         Me.OpenFile = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -41,14 +38,6 @@ Partial Class strurl_txt
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.str_url = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.pl_txt = New System.Windows.Forms.TextBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
@@ -58,18 +47,21 @@ Partial Class strurl_txt
         Me.SendDMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KickUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BanUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -122,32 +114,6 @@ Partial Class strurl_txt
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'TokenInput
-        '
-        Me.TokenInput.Location = New System.Drawing.Point(12, 18)
-        Me.TokenInput.Name = "TokenInput"
-        Me.TokenInput.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TokenInput.Size = New System.Drawing.Size(248, 20)
-        Me.TokenInput.TabIndex = 9
-        '
-        'SaveToken
-        '
-        Me.SaveToken.Location = New System.Drawing.Point(266, 16)
-        Me.SaveToken.Name = "SaveToken"
-        Me.SaveToken.Size = New System.Drawing.Size(111, 23)
-        Me.SaveToken.TabIndex = 10
-        Me.SaveToken.Text = "Save Token"
-        Me.SaveToken.UseVisualStyleBackColor = True
-        '
-        'ReloadBot
-        '
-        Me.ReloadBot.Location = New System.Drawing.Point(271, 183)
-        Me.ReloadBot.Name = "ReloadBot"
-        Me.ReloadBot.Size = New System.Drawing.Size(121, 23)
-        Me.ReloadBot.TabIndex = 11
-        Me.ReloadBot.Text = "Reload bot"
-        Me.ReloadBot.UseVisualStyleBackColor = True
-        '
         'UserList
         '
         Me.UserList.Dock = System.Windows.Forms.DockStyle.Fill
@@ -199,7 +165,7 @@ Partial Class strurl_txt
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.ChannelList)
-        Me.GroupBox2.Location = New System.Drawing.Point(262, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(247, 24)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(200, 274)
         Me.GroupBox2.TabIndex = 23
@@ -216,90 +182,12 @@ Partial Class strurl_txt
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Users List"
         '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.GroupBox7)
-        Me.GroupBox5.Controls.Add(Me.GroupBox6)
-        Me.GroupBox5.Controls.Add(Me.ReloadBot)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 510)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(408, 218)
-        Me.GroupBox5.TabIndex = 26
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Bot Settings"
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.Controls.Add(Me.Button2)
-        Me.GroupBox7.Controls.Add(Me.Label2)
-        Me.GroupBox7.Controls.Add(Me.str_url)
-        Me.GroupBox7.Controls.Add(Me.Button1)
-        Me.GroupBox7.Controls.Add(Me.pl_txt)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 78)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(386, 99)
-        Me.GroupBox7.TabIndex = 27
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Current Playing Message"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(266, 59)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(111, 29)
-        Me.Button2.TabIndex = 31
-        Me.Button2.Text = "Save Them"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 52)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(236, 13)
-        Me.Label2.TabIndex = 30
-        Me.Label2.Text = "Streaming URL [Leave Empty if you dont want it]"
-        '
-        'str_url
-        '
-        Me.str_url.Location = New System.Drawing.Point(12, 68)
-        Me.str_url.Name = "str_url"
-        Me.str_url.Size = New System.Drawing.Size(248, 20)
-        Me.str_url.TabIndex = 30
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(266, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 34)
-        Me.Button1.TabIndex = 30
-        Me.Button1.Text = "Set Them"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'pl_txt
-        '
-        Me.pl_txt.Location = New System.Drawing.Point(12, 19)
-        Me.pl_txt.Name = "pl_txt"
-        Me.pl_txt.Size = New System.Drawing.Size(248, 20)
-        Me.pl_txt.TabIndex = 30
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.TokenInput)
-        Me.GroupBox6.Controls.Add(Me.SaveToken)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 19)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(386, 53)
-        Me.GroupBox6.TabIndex = 27
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Token"
-        '
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(Me.GroupBox9)
         Me.GroupBox8.Controls.Add(Me.OpenChatViewer)
         Me.GroupBox8.Controls.Add(Me.MentionToggle)
-        Me.GroupBox8.Location = New System.Drawing.Point(18, 297)
+        Me.GroupBox8.Location = New System.Drawing.Point(3, 309)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(341, 207)
         Me.GroupBox8.TabIndex = 27
@@ -321,7 +209,7 @@ Partial Class strurl_txt
         'GroupBox10
         '
         Me.GroupBox10.Controls.Add(Me.GroupBox3)
-        Me.GroupBox10.Location = New System.Drawing.Point(467, 12)
+        Me.GroupBox10.Location = New System.Drawing.Point(452, 24)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(240, 274)
         Me.GroupBox10.TabIndex = 28
@@ -332,7 +220,7 @@ Partial Class strurl_txt
         '
         Me.GroupBox11.Controls.Add(Me.GroupBox1)
         Me.GroupBox11.Controls.Add(Me.RefreshGuild)
-        Me.GroupBox11.Location = New System.Drawing.Point(18, 12)
+        Me.GroupBox11.Location = New System.Drawing.Point(3, 24)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Size = New System.Drawing.Size(238, 274)
         Me.GroupBox11.TabIndex = 29
@@ -369,28 +257,65 @@ Partial Class strurl_txt
         Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
-        'strurl_txt
+        'ImageList1
+        '
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.BackgroundImage = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
+        Me.GroupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.GroupBox4.Location = New System.Drawing.Point(452, 309)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(240, 217)
+        Me.GroupBox4.TabIndex = 30
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "GroupBox4"
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(724, 24)
+        Me.MenuStrip1.TabIndex = 31
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenSettingsToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'OpenSettingsToolStripMenuItem
+        '
+        Me.OpenSettingsToolStripMenuItem.Name = "OpenSettingsToolStripMenuItem"
+        Me.OpenSettingsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.OpenSettingsToolStripMenuItem.Text = "Open Settings"
+        '
+        'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(724, 737)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ClientSize = New System.Drawing.Size(724, 531)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox8)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "strurl_txt"
+        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Name = "MainWindow"
         Me.Text = "DiscordGUI.NET 1.1.0"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
@@ -398,7 +323,10 @@ Partial Class strurl_txt
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -408,9 +336,6 @@ Partial Class strurl_txt
     Friend WithEvents GuildList As ListBox
     Friend WithEvents RefreshGuild As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
-    Friend WithEvents SaveToken As Button
-    Friend WithEvents TokenInput As TextBox
-    Friend WithEvents ReloadBot As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents UserList As ListBox
     Friend WithEvents OpenFile As Button
@@ -423,18 +348,15 @@ Partial Class strurl_txt
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents GroupBox9 As GroupBox
-    Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents pl_txt As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents str_url As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Button2 As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents InsertMentionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SendDMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KickUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BanUserToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenSettingsToolStripMenuItem As ToolStripMenuItem
 End Class

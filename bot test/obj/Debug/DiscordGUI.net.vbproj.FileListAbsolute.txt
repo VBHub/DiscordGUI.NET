@@ -265,7 +265,6 @@ C:\Users\jim\source\repos\DiscordGUI.net\bot test\bin\Debug\System.Diagnostics.D
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\bin\Debug\System.Interactive.Async.xml
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.vbprojResolveAssemblyReference.cache
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.exe.config
-C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.GUI.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.Resources.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.vbproj.GenerateResource.Cache
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.vbproj.CoreCompileInputs.cache
@@ -549,3 +548,5 @@ E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.exe
 E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.xml
 E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.pdb
 E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.strurl_txt.resources
+C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.BotSettingsForm.resources
+C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.MainWindow.resources
