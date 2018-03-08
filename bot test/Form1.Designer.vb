@@ -232,30 +232,30 @@ Partial Class MainWindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 92)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 114)
         '
         'InsertMentionToolStripMenuItem
         '
         Me.InsertMentionToolStripMenuItem.Name = "InsertMentionToolStripMenuItem"
-        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.InsertMentionToolStripMenuItem.Text = "Insert Mention"
         '
         'SendDMToolStripMenuItem
         '
         Me.SendDMToolStripMenuItem.Name = "SendDMToolStripMenuItem"
-        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SendDMToolStripMenuItem.Text = "Send DM"
         '
         'KickUserToolStripMenuItem
         '
         Me.KickUserToolStripMenuItem.Name = "KickUserToolStripMenuItem"
-        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.KickUserToolStripMenuItem.Text = "Kick User"
         '
         'BanUserToolStripMenuItem
         '
         Me.BanUserToolStripMenuItem.Name = "BanUserToolStripMenuItem"
-        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
         'ImageList1
