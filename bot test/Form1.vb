@@ -140,11 +140,6 @@ Public Class GUI
         TokenInput.Text = My.Settings.token
     End Sub
 
-
-
-
-
-
     Private Sub sendMsg()
         ''function to send a the message
         Try
@@ -163,29 +158,26 @@ Public Class GUI
 
     End Sub
 
+
     Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
         ''listen to messages thats received and adds the content to the listbox,
         ''uses invoke to be able to alter the control otherwise a cross thread exptions is raised
         MessageBox.Invoke(Sub()
-                              Try
+                              If Not ChatViewer.Visible Or IsNothing(ChannelList.SelectedItem) Then
+                                  MsgBox("Please select a channel")
+                              Else
                                   If msg.Channel.Id = ChannelList.SelectedItem.id Then
-                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ": " & msg.Content)
                                   End If
-                              Catch ex As Exception
-
-                              End Try
-                              Try
                                   If TypeOf msg.Channel Is Discord.IDMChannel Then
-                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ": " & msg.Content)
                                   End If
-                              Catch ex As Exception
-
-                              End Try
+                              End If
 
                           End Sub)
 
         Try
-            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
+            If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
                 Dim content = msg.Content.Replace("<@" & DiscordBot.CurrentUser.Id.ToString & ">", "@" & DiscordBot.CurrentUser.Username)
                 MsgBox(msg.Author.Username & ": " & content, Title:="you got mentioned in " & msg.Channel.Name)
             End If
