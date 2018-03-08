@@ -3,3 +3,4 @@ bot test/
 *.pdb
 *.obj
 *.exe
+*.cache
