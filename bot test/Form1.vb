@@ -158,28 +158,36 @@ Public Class GUI
 
     End Sub
 
+    Private Function replaceMentions(msg As SocketMessage) As String
+        Dim content = msg.Content
+        For Each user As SocketUser In msg.MentionedUsers
+            content = content.Replace("<@" & user.Id.ToString & ">", "@" & user.Username)
+        Next
+        Return content
+    End Function
+
 
     Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
         ''listen to messages thats received and adds the content to the listbox,
         ''uses invoke to be able to alter the control otherwise a cross thread exptions is raised
         MessageBox.Invoke(Sub()
-                              If Not ChatViewer.Visible Or IsNothing(ChannelList.SelectedItem) Then
-                                  MsgBox("Please select a channel")
-                              Else
+                              Try
                                   If msg.Channel.Id = ChannelList.SelectedItem.id Then
-                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ": " & msg.Content)
+                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ": " & replaceMentions(msg))
                                   End If
+                              Catch ex As Exception
+                              End Try
+                              Try
                                   If TypeOf msg.Channel Is Discord.IDMChannel Then
-                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ": " & msg.Content)
+                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ": " & replaceMentions(msg))
                                   End If
-                              End If
-
+                              Catch ex As Exception
+                              End Try
                           End Sub)
 
         Try
             If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
-                Dim content = msg.Content.Replace("<@" & DiscordBot.CurrentUser.Id.ToString & ">", "@" & DiscordBot.CurrentUser.Username)
-                MsgBox(msg.Author.Username & ": " & content, Title:="you got mentioned in " & msg.Channel.Name)
+                MsgBox(msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned in " & msg.Channel.Name)
             End If
         Catch ex As Exception
 
