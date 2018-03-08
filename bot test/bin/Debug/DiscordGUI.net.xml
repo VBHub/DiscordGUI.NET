@@ -22,5 +22,10 @@ DiscordGUI.net
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

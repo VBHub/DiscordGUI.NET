@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("bot test")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Microsoft")>
-<Assembly: AssemblyProduct("bot test")>
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2018")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTitle("DiscordGUI.NET")>
+<Assembly: AssemblyDescription("A GUI Control Panel for managing Discord(tm) bots")>
+<Assembly: AssemblyCompany("DiscordGUI.NET")>
+<Assembly: AssemblyProduct("DiscordGUI.NET")>
+<Assembly: AssemblyCopyright("Copyright © DiscrdGUI.NET Team 2018")>
+<Assembly: AssemblyTrademark("DiscordGUI.NET")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.1.0.0")>
+<Assembly: AssemblyFileVersion("1.1.0.0")>
