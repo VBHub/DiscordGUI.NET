@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.DiscordGUI.net.GUI
+            Me.MainForm = Global.DiscordGUI.net.strurl_txt
         End Sub
     End Class
 End Namespace

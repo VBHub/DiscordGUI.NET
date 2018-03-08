@@ -1,11 +1,23 @@
-﻿Imports Discord.Net
+﻿' ======================================================
+'                     DISCORDGUI.NET
+'   Best GUI Control Panel for managing Discord Bots
+'            Copyrights (c) 2018 DGUI.NET Team
+'
+'   Project Founder:    Drakkillen
+'
+'   Developers     :    Zeyad Ahmed
+'                       StackDoubeFlow
+'
+' ======================================================
+
+Imports Discord.Net
 Imports Discord.Commands
 Imports Discord.WebSocket
 Imports System.ComponentModel
 Imports WebSocket4Net
 Imports System.Linq
 
-Public Class GUI
+Public Class strurl_txt
     Dim WithEvents DiscordBot As New DiscordSocketClient
 
 
@@ -72,12 +84,12 @@ Public Class GUI
         End If
     End Sub
 
-    Private Sub InsertMention_Click(sender As Object, e As EventArgs) Handles InsertMention.Click
+    Private Sub InsertMention_Click(sender As Object, e As EventArgs)
         ''inserts the mention markup into the current position on the messageBox
         MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
     End Sub
 
-    Private Sub KickUser_Click(sender As Object, e As EventArgs) Handles KickUser.Click
+    Private Sub KickUser_Click(sender As Object, e As EventArgs)
         ''kicks the selected user from selected guild
         Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
@@ -85,7 +97,7 @@ Public Class GUI
         guild.GetUser(UserList.SelectedItem.id).KickAsync(reason)
     End Sub
 
-    Private Sub BanUser_Click(sender As Object, e As EventArgs) Handles BanUser.Click
+    Private Sub BanUser_Click(sender As Object, e As EventArgs)
         ''Bans the selected user from selected guild
         Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
@@ -96,7 +108,7 @@ Public Class GUI
         ChatViewer.Show()
     End Sub
     ''send a DM
-    Private Async Sub SendDm_Click_1(sender As Object, e As EventArgs) Handles SendDm.Click
+    Private Async Sub SendDm_Click_1(sender As Object, e As EventArgs)
         Try
             Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
             Await dmChannel.SendMessageAsync(MessageBox.Text)
@@ -140,8 +152,14 @@ Public Class GUI
         TokenInput.Text = My.Settings.token
     End Sub
 
+    Private Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
+        If IsNothing(StreamURL_LeaveNULL_If_Not) Then
+            DiscordBot.SetGameAsync(PlayingGame, StreamURL_LeaveNULL_If_Not)
+        Else
+            DiscordBot.SetGameAsync(PlayingGame)
+        End If
 
-
+    End Sub
 
 
 
@@ -193,7 +211,6 @@ Public Class GUI
 
         End Try
 
-
     End Function
 
     Sub SendFile(path)
@@ -202,5 +219,72 @@ Public Class GUI
         channel.SendFileAsync(path)
     End Sub
 
+    Private Sub GroupBox11_Enter(sender As Object, e As EventArgs) Handles GroupBox11.Enter
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        '' Sets the current playing message!
+        Dim pl_m As String = pl_txt.Text
+        Dim str_m As String = str_url.Text
+        If str_m = "" Then
+            UpdatePlayingStatus(pl_m, str_m)
+        Else
+            UpdatePlayingStatus(pl_m, Nothing)
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If str_url.Text = "" And pl_txt.Text = "" Then
+            MsgBox("You must type a playing game name!", MsgBoxStyle.Critical, "Error")
+        ElseIf str_url.Text = "" And IsNothing(pl_txt.Text) = False Then
+            UpdatePlayingStatus(pl_txt.Text, Nothing)
+        Else
+            UpdatePlayingStatus(pl_txt.Text, str_url.Text)
+
+        End If
+    End Sub
+
+
+    Private Sub UserList_MouseDown(sender As Object, e As MouseEventArgs) Handles UserList.MouseDown
+        If e.Button = MouseButtons.Right Then
+            If UserList.SelectedIndices.Count > 0 Then
+                UserList.ContextMenuStrip = Me.ContextMenuStrip1
+
+            Else
+                UserList.ContextMenuStrip = Nothing
+
+            End If
+        End If
+    End Sub
+
+    Private Sub InsertMentionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsertMentionToolStripMenuItem.Click
+        MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
+    End Sub
+
+    Private Async Sub SendDMToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendDMToolStripMenuItem.Click
+        Try
+            Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
+            Await dmChannel.SendMessageAsync(MessageBox.Text)
+            MessageBox.Text = ""
+        Catch ex As Exception
+            MsgBox("You need to select a User to send DM to")
+        End Try
+    End Sub
+
+    Private Sub KickUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KickUserToolStripMenuItem.Click
+        ''kicks the selected user from selected guild
+        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim guild = DiscordBot.GetGuild(channelObj.Id)
+        Dim reason As String = InputBox("what is the reason for the kick?")
+        guild.GetUser(UserList.SelectedItem.id).KickAsync(reason)
+    End Sub
+
+    Private Sub BanUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BanUserToolStripMenuItem.Click
+        ''Bans the selected user from selected guild
+        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim guild = DiscordBot.GetGuild(channelObj.Id)
+        Dim reason As String = InputBox("what is the reason for the kick?")
+        guild.AddBanAsync(UserList.SelectedItem.id, 7, reason)
+    End Sub
 End Class

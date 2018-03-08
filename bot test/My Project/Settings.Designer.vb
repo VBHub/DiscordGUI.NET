@@ -65,6 +65,30 @@ Namespace My
                 Me("token") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property pl_m() As String
+            Get
+                Return CType(Me("pl_m"),String)
+            End Get
+            Set
+                Me("pl_m") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property str_m() As String
+            Get
+                Return CType(Me("str_m"),String)
+            End Get
+            Set
+                Me("str_m") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
