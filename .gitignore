@@ -1,3 +1,5 @@
 .vs/
-bot test/bin/
-bot test/obj/
+bot test/
+*.pdb
+*.obj
+*.exe
