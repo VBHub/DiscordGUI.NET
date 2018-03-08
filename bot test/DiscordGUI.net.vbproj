@@ -212,6 +212,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BotSettingsForm.Designer.vb">
+      <DependentUpon>BotSettingsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BotSettingsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BotSettingsForm.resx">
+      <DependentUpon>BotSettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DISCORDGUI.net.ico" />
+    <None Include="Resources\DISCORDGUI.net.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
