@@ -144,9 +144,17 @@ Public Class MainWindow
 
     Public Async Sub startup()
         ''this is the function that login the bot and start it
+        If DiscordBot.LoginState() = 2 Then
+            Await DiscordBot.LogoutAsync()
+        End If
+
+
+
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
         })
+
+
         Try
             Label3.ForeColor = Color.Red
             Label3.Text = "Status: login in"
@@ -218,6 +226,7 @@ Public Class MainWindow
         PictureBox1.Invoke(Sub()
                                FillGuild()
                                PictureBox1.Load(DiscordBot.CurrentUser.GetAvatarUrl)
+                               Label2.ForeColor = My.Settings.CurrentBotColor
                                Label2.Text = "Current bot: " & DiscordBot.CurrentUser.Username()
                                Label3.Text = "Status: Ready to Rock and Roll"
                                Label3.ForeColor = Color.Green
@@ -266,7 +275,11 @@ Public Class MainWindow
         Try
             If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
                 Dim GuildName = DirectCast(msg.Channel, Discord.WebSocket.SocketGuildChannel).Guild
-                MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
+
+                MentionPopup.setData(GuildName.Name.ToString, msg.Channel.Name.ToString, replaceMentions(msg))
+
+                MentionPopup.ShowDialog()
+                ' MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
             End If
         Catch ex As Exception
 
@@ -350,5 +363,9 @@ Public Class MainWindow
         Else
             UpdatePlayingStatus(inputText, inputUrl)
         End If
+    End Sub
+
+    Private Sub ShowLastMention_Click(sender As Object, e As EventArgs) Handles ShowLastMention.Click
+        MentionPopup.ShowDialog()
     End Sub
 End Class
