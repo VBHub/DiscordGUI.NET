@@ -89,6 +89,42 @@ Namespace My
                 Me("str_m") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ActiveCaptionText")>  _
+        Public Property GuildColourSetting() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("GuildColourSetting"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("GuildColourSetting") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property ChannelColourSettings() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ChannelColourSettings"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("ChannelColourSettings") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property MessageColorSetting() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("MessageColorSetting"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("MessageColorSetting") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -16,4 +16,22 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         MainWindow.SetStreamStatus(pl_txt.Text, str_url.Text)
     End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        ColorDialog1.ShowDialog()
+        Dim Selectedcolor = ColorDialog1.Color
+        My.Settings.GuildColourSetting = Selectedcolor
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        ColorDialog1.ShowDialog()
+        Dim Selectedcolor = ColorDialog1.Color
+        My.Settings.ChannelColourSettings = Selectedcolor
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        ColorDialog1.ShowDialog()
+        Dim Selectedcolor = ColorDialog1.Color
+        My.Settings.MessageColorSetting = Selectedcolor
+    End Sub
 End Class

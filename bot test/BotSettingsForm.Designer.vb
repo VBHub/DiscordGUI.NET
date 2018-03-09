@@ -32,8 +32,14 @@ Partial Class BotSettingsForm
         Me.str_url = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.pl_txt = New System.Windows.Forms.TextBox()
+        Me.ColourSettings = New System.Windows.Forms.GroupBox()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
+        Me.ColourSettings.SuspendLayout()
         Me.SuspendLayout()
         '
         'TokenInput
@@ -128,11 +134,58 @@ Partial Class BotSettingsForm
         Me.pl_txt.Size = New System.Drawing.Size(248, 20)
         Me.pl_txt.TabIndex = 30
         '
+        'ColourSettings
+        '
+        Me.ColourSettings.Controls.Add(Me.Label4)
+        Me.ColourSettings.Controls.Add(Me.Label3)
+        Me.ColourSettings.Controls.Add(Me.Label1)
+        Me.ColourSettings.Location = New System.Drawing.Point(439, 48)
+        Me.ColourSettings.Name = "ColourSettings"
+        Me.ColourSettings.Size = New System.Drawing.Size(226, 129)
+        Me.ColourSettings.TabIndex = 28
+        Me.ColourSettings.TabStop = False
+        Me.ColourSettings.Text = "Color Settings"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.DiscordGUI.net.My.MySettings.Default, "MessageColorSetting", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Label4.ForeColor = Global.DiscordGUI.net.My.MySettings.Default.MessageColorSetting
+        Me.Label4.Location = New System.Drawing.Point(6, 73)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 13)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "Message:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.DiscordGUI.net.My.MySettings.Default, "ChannelColourSettings", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Label3.ForeColor = Global.DiscordGUI.net.My.MySettings.Default.ChannelColourSettings
+        Me.Label3.Location = New System.Drawing.Point(6, 47)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(49, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Channel:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.SystemColors.Control
+        Me.Label1.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.DiscordGUI.net.My.MySettings.Default, "GuildColourSetting", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Label1.ForeColor = Global.DiscordGUI.net.My.MySettings.Default.GuildColourSetting
+        Me.Label1.Location = New System.Drawing.Point(6, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Guild:"
+        '
         'BotSettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 537)
+        Me.ClientSize = New System.Drawing.Size(686, 198)
+        Me.Controls.Add(Me.ColourSettings)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.ReloadBotButton)
         Me.Controls.Add(Me.SaveToken)
@@ -142,6 +195,8 @@ Partial Class BotSettingsForm
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.ColourSettings.ResumeLayout(False)
+        Me.ColourSettings.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -157,4 +212,9 @@ Partial Class BotSettingsForm
     Friend WithEvents str_url As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents pl_txt As TextBox
+    Friend WithEvents ColourSettings As GroupBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ColorDialog1 As ColorDialog
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
 End Class

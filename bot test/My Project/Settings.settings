@@ -11,5 +11,14 @@
     <Setting Name="str_m" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="GuildColourSetting" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ActiveCaptionText</Value>
+    </Setting>
+    <Setting Name="ChannelColourSettings" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ControlText</Value>
+    </Setting>
+    <Setting Name="MessageColorSetting" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ControlText</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
