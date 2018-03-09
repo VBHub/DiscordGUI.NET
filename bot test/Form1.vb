@@ -248,7 +248,11 @@ Public Class MainWindow
         Try
             If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
                 Dim GuildName = DirectCast(msg.Channel, Discord.WebSocket.SocketGuildChannel).Guild
-                MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
+
+                MentionPopup.setData(GuildName.Name.ToString, msg.Channel.Name.ToString, replaceMentions(msg))
+
+                MentionPopup.ShowDialog()
+                ' MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
             End If
         Catch ex As Exception
 
@@ -333,4 +337,5 @@ Public Class MainWindow
             UpdatePlayingStatus(inputText, inputUrl)
         End If
     End Sub
+
 End Class
