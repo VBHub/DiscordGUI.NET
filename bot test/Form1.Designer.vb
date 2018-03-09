@@ -25,7 +25,7 @@ Partial Class MainWindow
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWindow))
         Me.SendMessage = New System.Windows.Forms.Button()
-        Me.MessageBox = New System.Windows.Forms.TextBox()
+        Me.MessageBox = New System.Windows.Forms.RichTextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.GuildList = New System.Windows.Forms.ListBox()
         Me.RefreshGuild = New System.Windows.Forms.Button()
@@ -54,6 +54,8 @@ Partial Class MainWindow
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -79,10 +81,10 @@ Partial Class MainWindow
         'MessageBox
         '
         Me.MessageBox.Location = New System.Drawing.Point(6, 22)
-        Me.MessageBox.Multiline = True
         Me.MessageBox.Name = "MessageBox"
         Me.MessageBox.Size = New System.Drawing.Size(208, 55)
         Me.MessageBox.TabIndex = 2
+        Me.MessageBox.Text = ""
         '
         'ChannelList
         '
@@ -317,6 +319,16 @@ Partial Class MainWindow
         Me.Label3.TabIndex = 34
         Me.Label3.Text = "Status:"
         '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
+        '
+        'EmogiAutocomplete
+        '
+        Me.EmogiAutocomplete.Name = "ContextMenuStrip3"
+        Me.EmogiAutocomplete.Size = New System.Drawing.Size(153, 26)
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -342,7 +354,6 @@ Partial Class MainWindow
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -355,7 +366,7 @@ Partial Class MainWindow
     End Sub
 
     Friend WithEvents SendMessage As Button
-    Friend WithEvents MessageBox As TextBox
+    Friend WithEvents MessageBox As RichTextBox
     Friend WithEvents ChannelList As ListBox
     Friend WithEvents GuildList As ListBox
     Friend WithEvents RefreshGuild As Button
@@ -385,4 +396,6 @@ Partial Class MainWindow
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents EmogiAutocomplete As ContextMenuStrip
 End Class

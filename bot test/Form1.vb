@@ -29,9 +29,9 @@ Public Class MainWindow
 
     End Sub
 
-    Private Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Async Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         ''when you close the form, it also logsout the bot
-        DiscordBot.LogoutAsync()
+        Await DiscordBot.LogoutAsync()
     End Sub
 
     Private Sub SendMessage_Click(sender As Object, e As EventArgs) Handles SendMessage.Click
@@ -68,7 +68,7 @@ Public Class MainWindow
     End Sub
 
 
-    Private Sub ReloadBot_Click(sender As Object, e As EventArgs) 
+    Private Sub ReloadBot_Click(sender As Object, e As EventArgs)
         ''This re-runs the startup function, makeing it possible to switch bots without closeing and re-opening the program
         startup()
     End Sub
@@ -77,6 +77,9 @@ Public Class MainWindow
         ''sends the message when ENTER key is pressed
         If e.KeyCode = 13 Then
             sendMsg()
+        End If
+        If e.KeyCode = 59 And e.Shift Then
+            MsgBox("Open now")
         End If
     End Sub
 
@@ -111,8 +114,6 @@ Public Class MainWindow
             MessageBox.Text = ""
         Catch ex As ArgumentException
             MsgBox("Message cannot be empty")
-        Catch ex As Exception
-            MsgBox("You need to select a User to send DM to")
         End Try
     End Sub
     ''opens message window
@@ -329,7 +330,6 @@ Public Class MainWindow
             UpdatePlayingStatus(inputText, Nothing)
         Else
             UpdatePlayingStatus(inputText, inputUrl)
-
         End If
     End Sub
 End Class

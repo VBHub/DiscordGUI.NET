@@ -1,6 +1,3 @@
 .vs/
-bot test/
-*.pdb
-*.obj
-*.exe
-*.cache
+bot test/bin/
+bot test/obj/

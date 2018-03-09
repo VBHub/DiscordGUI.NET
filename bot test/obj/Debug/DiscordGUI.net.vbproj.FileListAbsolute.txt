@@ -402,7 +402,6 @@ C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\bin\Debug\Sys
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\bin\Debug\System.Interactive.Async.xml
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.vbprojResolveAssemblyReference.cache
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.exe.config
-C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.GUI.resources
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.ChatViewer.resources
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.Resources.resources
 C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.vbproj.GenerateResource.Cache
@@ -550,3 +549,5 @@ E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.pdb
 E:\dgui\v1\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.strurl_txt.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.BotSettingsForm.resources
 C:\Users\jim\source\repos\DiscordGUI.net\bot test\obj\Debug\DiscordGUI.net.MainWindow.resources
+C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.BotSettingsForm.resources
+C:\Users\ojasl\Documents\VB\DiscordGUI.NET\DiscordGUI.NET\bot test\obj\Debug\DiscordGUI.net.MainWindow.resources
