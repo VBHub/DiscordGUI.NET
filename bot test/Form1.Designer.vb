@@ -326,7 +326,7 @@ Partial Class MainWindow
         '
         'EmogiAutocomplete
         '
-        Me.EmogiAutocomplete.Name = "ContextMenuStrip3"
+        Me.EmogiAutocomplete.Name = "EmogiAutocomplete"
         Me.EmogiAutocomplete.Size = New System.Drawing.Size(153, 26)
         '
         'MainWindow

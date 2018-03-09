@@ -78,9 +78,15 @@ Public Class MainWindow
         If e.KeyCode = 13 Then
             sendMsg()
         End If
-        If e.KeyCode = 59 And e.Shift Then
-            MsgBox("Open now")
+        If e.KeyCode = 186 And e.Shift Then
+            Me.EmogiAutocomplete.Show(Cursor.Position)
         End If
+    End Sub
+
+    Private Sub EmogiAutocomplete_Click(sender As Object, e As EventArgs)
+        Dim item = CType(sender, ToolStripMenuItem)
+        MessageBox.AppendText(item.Text)
+        EmogiAutocomplete.Close()
     End Sub
 
     Private Sub InsertMention_Click(sender As Object, e As EventArgs)
@@ -164,7 +170,6 @@ Public Class MainWindow
             MsgBox(ex.Message)
 
         End Try
-
     End Sub
 
 
@@ -217,9 +222,22 @@ Public Class MainWindow
                                Label3.Text = "Status: Ready to Rock and Roll"
                                Label3.ForeColor = Color.Green
 
+
+                               ''Load all the emotes
+                               EmogiAutocomplete.AutoClose = False
+                               Dim AllGuildEmotes As New List(Of Discord.GuildEmote)
+                               For Each guild In DiscordBot.Guilds
+                                   AllGuildEmotes.AddRange(guild.Emotes.ToList)
+                               Next
+                               If (AllGuildEmotes.Count > 0) Then
+                                   For i As Integer = 0 To AllGuildEmotes.Count - 1
+                                       Dim image = New Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(AllGuildEmotes.ElementAt(i).Url)))
+                                       Dim item = EmogiAutocomplete.Items.Add(":" & AllGuildEmotes.ElementAt(i).Name & ":", image)
+                                       item.Tag = i
+                                       AddHandler item.Click, AddressOf EmogiAutocomplete_Click
+                                   Next
+                               End If
                            End Sub)
-
-
 
     End Function
 
