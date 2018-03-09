@@ -338,4 +338,7 @@ Public Class MainWindow
         End If
     End Sub
 
+    Private Sub ShowLastMention_Click(sender As Object, e As EventArgs) Handles ShowLastMention.Click
+        MentionPopup.ShowDialog()
+    End Sub
 End Class

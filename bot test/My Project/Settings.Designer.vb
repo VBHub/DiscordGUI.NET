@@ -125,6 +125,42 @@ Namespace My
                 Me("MessageColorSetting") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property LastMentionGuild() As String
+            Get
+                Return CType(Me("LastMentionGuild"),String)
+            End Get
+            Set
+                Me("LastMentionGuild") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property LastMentionChannel() As String
+            Get
+                Return CType(Me("LastMentionChannel"),String)
+            End Get
+            Set
+                Me("LastMentionChannel") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property LastMentionMessage() As String
+            Get
+                Return CType(Me("LastMentionMessage"),String)
+            End Get
+            Set
+                Me("LastMentionMessage") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

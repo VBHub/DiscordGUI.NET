@@ -56,6 +56,7 @@ Partial Class MainWindow
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ShowLastMention = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -189,6 +190,7 @@ Partial Class MainWindow
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.ShowLastMention)
         Me.GroupBox8.Controls.Add(Me.GroupBox9)
         Me.GroupBox8.Controls.Add(Me.OpenChatViewer)
         Me.GroupBox8.Controls.Add(Me.MentionToggle)
@@ -327,7 +329,16 @@ Partial Class MainWindow
         'EmogiAutocomplete
         '
         Me.EmogiAutocomplete.Name = "ContextMenuStrip3"
-        Me.EmogiAutocomplete.Size = New System.Drawing.Size(153, 26)
+        Me.EmogiAutocomplete.Size = New System.Drawing.Size(61, 4)
+        '
+        'ShowLastMention
+        '
+        Me.ShowLastMention.Location = New System.Drawing.Point(192, 45)
+        Me.ShowLastMention.Name = "ShowLastMention"
+        Me.ShowLastMention.Size = New System.Drawing.Size(147, 21)
+        Me.ShowLastMention.TabIndex = 29
+        Me.ShowLastMention.Text = "Show Last Mention"
+        Me.ShowLastMention.UseVisualStyleBackColor = True
         '
         'MainWindow
         '
@@ -398,4 +409,5 @@ Partial Class MainWindow
     Friend WithEvents Label3 As Label
     Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
     Friend WithEvents EmogiAutocomplete As ContextMenuStrip
+    Friend WithEvents ShowLastMention As Button
 End Class
