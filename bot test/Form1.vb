@@ -138,9 +138,17 @@ Public Class MainWindow
 
     Public Async Sub startup()
         ''this is the function that login the bot and start it
+        If DiscordBot.LoginState() = 2 Then
+            Await DiscordBot.LogoutAsync()
+        End If
+
+
+
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
         })
+
+
         Try
             Label3.ForeColor = Color.Red
             Label3.Text = "Status: login in"
@@ -213,10 +221,10 @@ Public Class MainWindow
         PictureBox1.Invoke(Sub()
                                FillGuild()
                                PictureBox1.Load(DiscordBot.CurrentUser.GetAvatarUrl)
+                               Label2.ForeColor = My.Settings.CurrentBotColor
                                Label2.Text = "Current bot: " & DiscordBot.CurrentUser.Username()
                                Label3.Text = "Status: Ready to Rock and Roll"
                                Label3.ForeColor = Color.Green
-
                            End Sub)
 
 

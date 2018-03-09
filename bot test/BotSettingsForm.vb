@@ -34,4 +34,10 @@
         Dim Selectedcolor = ColorDialog1.Color
         My.Settings.MessageColorSetting = Selectedcolor
     End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        ColorDialog1.ShowDialog()
+        Dim Selectedcolor = ColorDialog1.Color
+        My.Settings.CurrentBotColor = Selectedcolor
+    End Sub
 End Class

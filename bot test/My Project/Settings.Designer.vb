@@ -161,6 +161,18 @@ Namespace My
                 Me("LastMentionMessage") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property CurrentBotColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("CurrentBotColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("CurrentBotColor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -34,6 +34,7 @@ Partial Class BotSettingsForm
         Me.pl_txt = New System.Windows.Forms.TextBox()
         Me.ColourSettings = New System.Windows.Forms.GroupBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -136,6 +137,7 @@ Partial Class BotSettingsForm
         '
         'ColourSettings
         '
+        Me.ColourSettings.Controls.Add(Me.Label5)
         Me.ColourSettings.Controls.Add(Me.Label4)
         Me.ColourSettings.Controls.Add(Me.Label3)
         Me.ColourSettings.Controls.Add(Me.Label1)
@@ -145,6 +147,17 @@ Partial Class BotSettingsForm
         Me.ColourSettings.TabIndex = 28
         Me.ColourSettings.TabStop = False
         Me.ColourSettings.Text = "Color Settings"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.DataBindings.Add(New System.Windows.Forms.Binding("ForeColor", Global.DiscordGUI.net.My.MySettings.Default, "CurrentBotColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Label5.ForeColor = Global.DiscordGUI.net.My.MySettings.Default.CurrentBotColor
+        Me.Label5.Location = New System.Drawing.Point(6, 96)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 13)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Current Bot:"
         '
         'Label4
         '
@@ -217,4 +230,5 @@ Partial Class BotSettingsForm
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class
