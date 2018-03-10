@@ -74,11 +74,12 @@ Public Class MainWindow
     End Sub
 
     Private Sub MessageBox_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageBox.KeyDown
+
         ''sends the message when ENTER key is pressed
         If e.KeyCode = 13 Then
             sendMsg()
         End If
-        If e.KeyCode = 186 And e.Shift Then
+        If e.KeyCode = 186 Or e.KeyCode = 190 And e.Shift Then
             Me.EmogiAutocomplete.Show(Cursor.Position)
         End If
     End Sub
