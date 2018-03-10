@@ -92,7 +92,7 @@ Public Class MainWindow
 
     Private Sub InsertMention_Click(sender As Object, e As EventArgs)
         ''inserts the mention markup into the current position on the messageBox
-        MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
+        MessageBox.AppendText(UserList.SelectedItem.mention)
     End Sub
 
     Private Sub KickUser_Click(sender As Object, e As EventArgs)
@@ -173,7 +173,7 @@ Public Class MainWindow
 
             Label3.ForeColor = Color.Orange
             Label3.Text = "Status: starting bot"
-            DiscordBot.StartAsync()
+            Await DiscordBot.StartAsync()
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -294,6 +294,17 @@ Public Class MainWindow
         channel.SendFileAsync(path)
     End Sub
 
+    Private Sub ChannelList_MouseDown(sender As Object, e As MouseEventArgs) Handles ChannelList.MouseDown
+        If e.Button = MouseButtons.Right Then
+            If ChannelList.SelectedIndices.Count > 0 Then
+                ChannelList.ContextMenuStrip = Me.ChannelOptions
+
+            Else
+                ChannelList.ContextMenuStrip = Nothing
+
+            End If
+        End If
+    End Sub
 
 
 
@@ -368,5 +379,10 @@ Public Class MainWindow
 
     Private Sub ShowLastMention_Click(sender As Object, e As EventArgs) Handles ShowLastMention.Click
         MentionPopup.ShowDialog()
+    End Sub
+
+    Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
+        UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl())
+        UserAvatar.ShowDialog()
     End Sub
 End Class
