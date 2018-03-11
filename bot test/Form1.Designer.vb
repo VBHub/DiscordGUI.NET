@@ -58,6 +58,7 @@ Partial Class MainWindow
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.UserSearchBox = New System.Windows.Forms.TextBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -225,10 +226,11 @@ Partial Class MainWindow
         '
         'GroupBox10
         '
+        Me.GroupBox10.Controls.Add(Me.UserSearchBox)
         Me.GroupBox10.Controls.Add(Me.GroupBox3)
         Me.GroupBox10.Location = New System.Drawing.Point(452, 24)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(240, 274)
+        Me.GroupBox10.Size = New System.Drawing.Size(240, 291)
         Me.GroupBox10.TabIndex = 28
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "User Management"
@@ -347,6 +349,13 @@ Partial Class MainWindow
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
+        'UserSearchBox
+        '
+        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
+        Me.UserSearchBox.Name = "UserSearchBox"
+        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
+        Me.UserSearchBox.TabIndex = 25
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -373,6 +382,7 @@ Partial Class MainWindow
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
@@ -418,4 +428,5 @@ Partial Class MainWindow
     Friend WithEvents EmogiAutocomplete As ContextMenuStrip
     Friend WithEvents ShowLastMention As Button
     Friend WithEvents GetAvatarToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents UserSearchBox As TextBox
 End Class

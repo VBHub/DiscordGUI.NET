@@ -207,8 +207,13 @@ Public Class MainWindow
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles OpenFile.Click
 
-        OpenFileDialog1.ShowDialog()
-        SendFile(System.IO.Path.GetFullPath(OpenFileDialog1.FileName))
+        Dim state = OpenFileDialog1.ShowDialog()
+        If state = DialogResult.OK Then
+
+            SendFile(System.IO.Path.GetFullPath(OpenFileDialog1.FileName))
+        End If
+
+
 
     End Sub
 
@@ -294,17 +299,7 @@ Public Class MainWindow
         channel.SendFileAsync(path)
     End Sub
 
-    Private Sub ChannelList_MouseDown(sender As Object, e As MouseEventArgs) Handles ChannelList.MouseDown
-        If e.Button = MouseButtons.Right Then
-            If ChannelList.SelectedIndices.Count > 0 Then
-                ChannelList.ContextMenuStrip = Me.ChannelOptions
 
-            Else
-                ChannelList.ContextMenuStrip = Nothing
-
-            End If
-        End If
-    End Sub
 
 
 
@@ -384,5 +379,12 @@ Public Class MainWindow
     Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
         UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl())
         UserAvatar.ShowDialog()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles UserSearchBox.TextChanged
+        Dim index As Integer = UserList.FindString(UserSearchBox.Text)
+        If index <> -1 Then
+            UserList.SetSelected(index, True)
+        End If
     End Sub
 End Class
