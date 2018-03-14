@@ -25,7 +25,7 @@ Partial Class MainWindow
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainWindow))
         Me.SendMessage = New System.Windows.Forms.Button()
-        Me.MessageBox = New System.Windows.Forms.TextBox()
+        Me.MessageBox = New System.Windows.Forms.RichTextBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.GuildList = New System.Windows.Forms.ListBox()
         Me.RefreshGuild = New System.Windows.Forms.Button()
@@ -39,6 +39,7 @@ Partial Class MainWindow
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
@@ -47,11 +48,17 @@ Partial Class MainWindow
         Me.SendDMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KickUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BanUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetAvatarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.UserSearchBox = New System.Windows.Forms.TextBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -62,6 +69,7 @@ Partial Class MainWindow
         Me.GroupBox11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -76,10 +84,10 @@ Partial Class MainWindow
         'MessageBox
         '
         Me.MessageBox.Location = New System.Drawing.Point(6, 22)
-        Me.MessageBox.Multiline = True
         Me.MessageBox.Name = "MessageBox"
         Me.MessageBox.Size = New System.Drawing.Size(208, 55)
         Me.MessageBox.TabIndex = 2
+        Me.MessageBox.Text = ""
         '
         'ChannelList
         '
@@ -184,6 +192,7 @@ Partial Class MainWindow
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.ShowLastMention)
         Me.GroupBox8.Controls.Add(Me.GroupBox9)
         Me.GroupBox8.Controls.Add(Me.OpenChatViewer)
         Me.GroupBox8.Controls.Add(Me.MentionToggle)
@@ -193,6 +202,15 @@ Partial Class MainWindow
         Me.GroupBox8.TabIndex = 27
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Chat Commands"
+        '
+        'ShowLastMention
+        '
+        Me.ShowLastMention.Location = New System.Drawing.Point(192, 45)
+        Me.ShowLastMention.Name = "ShowLastMention"
+        Me.ShowLastMention.Size = New System.Drawing.Size(147, 21)
+        Me.ShowLastMention.TabIndex = 29
+        Me.ShowLastMention.Text = "Show Last Mention"
+        Me.ShowLastMention.UseVisualStyleBackColor = True
         '
         'GroupBox9
         '
@@ -208,10 +226,11 @@ Partial Class MainWindow
         '
         'GroupBox10
         '
+        Me.GroupBox10.Controls.Add(Me.UserSearchBox)
         Me.GroupBox10.Controls.Add(Me.GroupBox3)
         Me.GroupBox10.Location = New System.Drawing.Point(452, 24)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(240, 274)
+        Me.GroupBox10.Size = New System.Drawing.Size(240, 291)
         Me.GroupBox10.TabIndex = 28
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "User Management"
@@ -229,9 +248,9 @@ Partial Class MainWindow
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem, Me.GetAvatarToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 92)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 114)
         '
         'InsertMentionToolStripMenuItem
         '
@@ -257,22 +276,17 @@ Partial Class MainWindow
         Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
+        'GetAvatarToolStripMenuItem1
+        '
+        Me.GetAvatarToolStripMenuItem1.Name = "GetAvatarToolStripMenuItem1"
+        Me.GetAvatarToolStripMenuItem1.Size = New System.Drawing.Size(151, 22)
+        Me.GetAvatarToolStripMenuItem1.Text = "Get Avatar"
+        '
         'ImageList1
         '
         Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.BackgroundImage = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
-        Me.GroupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.GroupBox4.Location = New System.Drawing.Point(452, 309)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(240, 217)
-        Me.GroupBox4.TabIndex = 30
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
         '
         'MenuStrip1
         '
@@ -296,14 +310,62 @@ Partial Class MainWindow
         Me.OpenSettingsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.OpenSettingsToolStripMenuItem.Text = "Open Settings"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(485, 318)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(65, 13)
+        Me.Label2.TabIndex = 33
+        Me.Label2.Text = "Current bot: "
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label3.Location = New System.Drawing.Point(485, 336)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 34
+        Me.Label3.Text = "Status:"
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
+        '
+        'EmogiAutocomplete
+        '
+        Me.EmogiAutocomplete.Name = "ContextMenuStrip3"
+        Me.EmogiAutocomplete.Size = New System.Drawing.Size(61, 4)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
+        Me.PictureBox1.Location = New System.Drawing.Point(485, 354)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(172, 172)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 32
+        Me.PictureBox1.TabStop = False
+        '
+        'UserSearchBox
+        '
+        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
+        Me.UserSearchBox.Name = "UserSearchBox"
+        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
+        Me.UserSearchBox.TabIndex = 25
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(724, 531)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox8)
@@ -319,19 +381,20 @@ Partial Class MainWindow
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents SendMessage As Button
-    Friend WithEvents MessageBox As TextBox
+    Friend WithEvents MessageBox As RichTextBox
     Friend WithEvents ChannelList As ListBox
     Friend WithEvents GuildList As ListBox
     Friend WithEvents RefreshGuild As Button
@@ -355,8 +418,15 @@ Partial Class MainWindow
     Friend WithEvents KickUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BanUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenSettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents EmogiAutocomplete As ContextMenuStrip
+    Friend WithEvents ShowLastMention As Button
+    Friend WithEvents GetAvatarToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents UserSearchBox As TextBox
 End Class

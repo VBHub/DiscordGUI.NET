@@ -23,14 +23,15 @@ Public Class MainWindow
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
+        Label3.Text = "Status: starting up"
         startup()
 
 
     End Sub
 
-    Private Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Async Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         ''when you close the form, it also logsout the bot
-        DiscordBot.LogoutAsync()
+        Await DiscordBot.LogoutAsync()
     End Sub
 
     Private Sub SendMessage_Click(sender As Object, e As EventArgs) Handles SendMessage.Click
@@ -67,21 +68,31 @@ Public Class MainWindow
     End Sub
 
 
-    Private Sub ReloadBot_Click(sender As Object, e As EventArgs) 
+    Private Sub ReloadBot_Click(sender As Object, e As EventArgs)
         ''This re-runs the startup function, makeing it possible to switch bots without closeing and re-opening the program
         startup()
     End Sub
 
     Private Sub MessageBox_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageBox.KeyDown
+
         ''sends the message when ENTER key is pressed
         If e.KeyCode = 13 Then
             sendMsg()
         End If
+        If e.KeyCode = 186 Or e.KeyCode = 190 And e.Shift Then
+            Me.EmogiAutocomplete.Show(Cursor.Position)
+        End If
+    End Sub
+
+    Private Sub EmogiAutocomplete_Click(sender As Object, e As EventArgs)
+        Dim item = CType(sender, ToolStripMenuItem)
+        MessageBox.AppendText(item.Text)
+        EmogiAutocomplete.Close()
     End Sub
 
     Private Sub InsertMention_Click(sender As Object, e As EventArgs)
         ''inserts the mention markup into the current position on the messageBox
-        MessageBox.Text = MessageBox.Text & "<@" & UserList.SelectedItem.id & "> "
+        MessageBox.AppendText(UserList.SelectedItem.mention)
     End Sub
 
     Private Sub KickUser_Click(sender As Object, e As EventArgs)
@@ -108,8 +119,8 @@ Public Class MainWindow
             Dim dmChannel = Await UserList.SelectedItem.GetOrCreateDMChannelAsync()
             Await dmChannel.SendMessageAsync(MessageBox.Text)
             MessageBox.Text = ""
-        Catch ex As Exception
-            MsgBox("You need to select a User to send DM to")
+        Catch ex As ArgumentException
+            MsgBox("Message cannot be empty")
         End Try
     End Sub
     ''opens message window
@@ -132,21 +143,46 @@ Public Class MainWindow
     End Sub
 
 
-    Public Sub startup()
+    Public Async Sub startup()
         ''this is the function that login the bot and start it
+        If DiscordBot.LoginState() = 2 Then
+            Await DiscordBot.LogoutAsync()
+        End If
+
+
+
         DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
                   .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
         })
+
+
         Try
-            DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
-            DiscordBot.StartAsync()
+            Label3.ForeColor = Color.Red
+            Label3.Text = "Status: login in"
+            Try
+                Await DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
+            Catch ex As Exception
+                Dim ErrorValue = DirectCast(ex, Discord.Net.HttpException).HttpCode
+                If ErrorValue = 401 Then
+                    Label3.ForeColor = Color.Red
+                    Label3.Text = "Status: Invalid Token"
+                    Return
+                End If
+
+            End Try
+
+            Label3.ForeColor = Color.Orange
+            Label3.Text = "Status: starting bot"
+            Await DiscordBot.StartAsync()
+
         Catch ex As Exception
             MsgBox(ex.Message)
 
         End Try
     End Sub
 
-    Private Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
+
+    Public Sub UpdatePlayingStatus(ByVal PlayingGame As String, ByVal StreamURL_LeaveNULL_If_Not As String)
         If IsNothing(StreamURL_LeaveNULL_If_Not) Then
             DiscordBot.SetGameAsync(PlayingGame, StreamURL_LeaveNULL_If_Not)
         Else
@@ -154,6 +190,7 @@ Public Class MainWindow
         End If
 
     End Sub
+
 
 
 
@@ -170,10 +207,58 @@ Public Class MainWindow
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles OpenFile.Click
 
-        OpenFileDialog1.ShowDialog()
-        SendFile(System.IO.Path.GetFullPath(OpenFileDialog1.FileName))
+        Dim state = OpenFileDialog1.ShowDialog()
+        If state = DialogResult.OK Then
+
+            SendFile(System.IO.Path.GetFullPath(OpenFileDialog1.FileName))
+        End If
+
+
 
     End Sub
+
+    Private Function replaceMentions(msg As SocketMessage) As String
+        Dim content = msg.Content
+        For Each user As SocketUser In msg.MentionedUsers
+            content = content.Replace("<@" & user.Id.ToString & ">", "@" & user.Username)
+        Next
+        Return content
+    End Function
+
+
+
+
+    Private Function onReady() As Task Handles DiscordBot.Ready
+        PictureBox1.Invoke(Sub()
+                               FillGuild()
+                               PictureBox1.Load(DiscordBot.CurrentUser.GetAvatarUrl)
+                               Label2.ForeColor = My.Settings.CurrentBotColor
+                               Label2.Text = "Current bot: " & DiscordBot.CurrentUser.Username()
+                               Label3.Text = "Status: Ready to Rock and Roll"
+                               Label3.ForeColor = Color.Green
+
+
+                               ''Load all the emotes
+                               EmogiAutocomplete.AutoClose = False
+                               Dim AllGuildEmotes As New List(Of Discord.GuildEmote)
+                               For Each guild In DiscordBot.Guilds
+                                   AllGuildEmotes.AddRange(guild.Emotes.ToList)
+                               Next
+                               If (AllGuildEmotes.Count > 0) Then
+                                   For i As Integer = 0 To AllGuildEmotes.Count - 1
+                                       Dim image = New Drawing.Bitmap(New IO.MemoryStream(New System.Net.WebClient().DownloadData(AllGuildEmotes.ElementAt(i).Url)))
+                                       Dim item = EmogiAutocomplete.Items.Add(":" & AllGuildEmotes.ElementAt(i).Name & ":", image)
+                                       item.Tag = i
+                                       AddHandler item.Click, AddressOf EmogiAutocomplete_Click
+                                   Next
+                               End If
+                           End Sub)
+
+    End Function
+
+
+
+
 
     Private Function onMsg(msg As SocketMessage) As Task Handles DiscordBot.MessageReceived
         ''listen to messages thats received and adds the content to the listbox,
@@ -181,25 +266,26 @@ Public Class MainWindow
         MessageBox.Invoke(Sub()
                               Try
                                   If msg.Channel.Id = ChannelList.SelectedItem.id Then
-                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                      ChatViewer.MessageBox.Items.Add(msg.Author.Username & ": " & replaceMentions(msg))
                                   End If
                               Catch ex As Exception
-
                               End Try
                               Try
                                   If TypeOf msg.Channel Is Discord.IDMChannel Then
-                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ":" & msg.Content)
+                                      ChatViewer.DMBox.Items.Add(msg.Author.Username & ": " & replaceMentions(msg))
                                   End If
                               Catch ex As Exception
-
                               End Try
-
                           End Sub)
 
         Try
-            If msg.MentionedUsers().Count() > 0 And DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
-                MsgBox(msg.Author.Username & ": " & msg.Content, Title:="you got mentioned in " & msg.Channel.Name)
+            If msg.MentionedUsers().Count() > 0 AndAlso DiscordBot.CurrentUser.Id = msg.MentionedUsers().First().Id And MentionToggle.Checked = False Then
+                Dim GuildName = DirectCast(msg.Channel, Discord.WebSocket.SocketGuildChannel).Guild
 
+                MentionPopup.setData(GuildName.Name.ToString, msg.Channel.Name.ToString, replaceMentions(msg))
+
+                MentionPopup.ShowDialog()
+                ' MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
             End If
         Catch ex As Exception
 
@@ -212,6 +298,7 @@ Public Class MainWindow
         Dim channel As Discord.IMessageChannel = TryCast(ChannelList.SelectedItem, Discord.IMessageChannel)
         channel.SendFileAsync(path)
     End Sub
+
 
 
 
@@ -238,7 +325,8 @@ Public Class MainWindow
             Await dmChannel.SendMessageAsync(MessageBox.Text)
             MessageBox.Text = ""
         Catch ex As Exception
-            MsgBox("You need to select a User to send DM to")
+            Dim ReasonValue = DirectCast(ex, Discord.Net.HttpException).Reason
+            MsgBox(ReasonValue)
         End Try
     End Sub
 
@@ -281,7 +369,22 @@ Public Class MainWindow
             UpdatePlayingStatus(inputText, Nothing)
         Else
             UpdatePlayingStatus(inputText, inputUrl)
+        End If
+    End Sub
 
+    Private Sub ShowLastMention_Click(sender As Object, e As EventArgs) Handles ShowLastMention.Click
+        MentionPopup.ShowDialog()
+    End Sub
+
+    Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
+        UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl())
+        UserAvatar.ShowDialog()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles UserSearchBox.TextChanged
+        Dim index As Integer = UserList.FindString(UserSearchBox.Text)
+        If index <> -1 Then
+            UserList.SetSelected(index, True)
         End If
     End Sub
 End Class
