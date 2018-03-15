@@ -3,12 +3,11 @@
 '   Best GUI Control Panel for managing Discord Bots
 '            Copyrights (c) 2018 DGUI.NET Team
 '
-'   Project Founder:    Drakkillen
+'   Project Founder:  qui Drakkillen
 '
 '   Developers     :    Zeyad Ahmed
 '                       StackDoubeFlow
 '
-' ======================================================
 
 Imports Discord.Net
 Imports Discord.Commands
@@ -377,7 +376,7 @@ Public Class MainWindow
     End Sub
 
     Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
-        UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl())
+        UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl(), UserList.SelectedItem.UserName)
         UserAvatar.ShowDialog()
     End Sub
 
