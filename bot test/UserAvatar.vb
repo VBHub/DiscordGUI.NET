@@ -1,9 +1,10 @@
 ﻿Public Class UserAvatar
-    Dim AvatarUrl
+    Dim AvatarUrlClipboard As String
     Public Sub setAvatar(AvatarUrl, UserName)
         If AvatarUrl IsNot Nothing Then
             UserAvatarImage.Load(AvatarUrl)
             UserAvatarUrl.Text = AvatarUrl
+            AvatarUrlClipboard = AvatarUrl
         Else
             UserAvatarImage.Image() = My.Resources.DISCORDGUI_net
             UserAvatarUrl.Text = "No avatar"
@@ -42,5 +43,9 @@
 
     Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub SaveClipboard_Click(sender As Object, e As EventArgs) Handles CopyClipboard.Click
+        Clipboard.SetText(AvatarUrlClipboard)
     End Sub
 End Class

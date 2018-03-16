@@ -34,6 +34,7 @@ Partial Class UserAvatar
         Me.IDlabel = New System.Windows.Forms.Label()
         Me.UserId = New System.Windows.Forms.Label()
         Me.PermissionBox = New System.Windows.Forms.ListBox()
+        Me.CopyClipboard = New System.Windows.Forms.Button()
         CType(Me.UserAvatarImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -131,14 +132,25 @@ Partial Class UserAvatar
         Me.PermissionBox.FormattingEnabled = True
         Me.PermissionBox.Location = New System.Drawing.Point(650, 12)
         Me.PermissionBox.Name = "PermissionBox"
-        Me.PermissionBox.Size = New System.Drawing.Size(152, 342)
+        Me.PermissionBox.Size = New System.Drawing.Size(152, 368)
+        Me.PermissionBox.Sorted = True
         Me.PermissionBox.TabIndex = 10
+        '
+        'CopyClipboard
+        '
+        Me.CopyClipboard.Location = New System.Drawing.Point(161, 371)
+        Me.CopyClipboard.Name = "CopyClipboard"
+        Me.CopyClipboard.Size = New System.Drawing.Size(174, 30)
+        Me.CopyClipboard.TabIndex = 11
+        Me.CopyClipboard.Text = "Save to Clipboard"
+        Me.CopyClipboard.UseVisualStyleBackColor = True
         '
         'UserAvatar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(826, 371)
+        Me.ClientSize = New System.Drawing.Size(826, 406)
+        Me.Controls.Add(Me.CopyClipboard)
         Me.Controls.Add(Me.PermissionBox)
         Me.Controls.Add(Me.UserId)
         Me.Controls.Add(Me.IDlabel)
@@ -171,4 +183,5 @@ Partial Class UserAvatar
     Friend WithEvents IDlabel As Label
     Friend WithEvents UserId As Label
     Friend WithEvents PermissionBox As ListBox
+    Friend WithEvents CopyClipboard As Button
 End Class
