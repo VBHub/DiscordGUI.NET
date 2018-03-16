@@ -15,10 +15,11 @@ Imports Discord.WebSocket
 Imports System.ComponentModel
 Imports WebSocket4Net
 Imports System.Linq
+Imports YoutubeExplode
 
 Public Class MainWindow
     Dim WithEvents DiscordBot As New DiscordSocketClient
-
+    Dim Youtubeclient As New YoutubeClient
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
@@ -386,4 +387,5 @@ Public Class MainWindow
             UserList.SetSelected(index, True)
         End If
     End Sub
+    ''__________________________________________testing_______________________________
 End Class

@@ -50,7 +50,7 @@ Partial Class MentionPopup
         'MentionMessage
         '
         Me.MentionMessage.AutoSize = True
-        Me.MentionMessage.BackColor = System.Drawing.Color.White
+        Me.MentionMessage.BackColor = System.Drawing.SystemColors.Control
         Me.MentionMessage.Location = New System.Drawing.Point(12, 46)
         Me.MentionMessage.Name = "MentionMessage"
         Me.MentionMessage.Size = New System.Drawing.Size(39, 13)

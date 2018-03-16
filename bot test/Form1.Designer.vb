@@ -42,6 +42,7 @@ Partial Class MainWindow
         Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.UserSearchBox = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.InsertMentionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,7 +59,6 @@ Partial Class MainWindow
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.UserSearchBox = New System.Windows.Forms.TextBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -235,6 +235,13 @@ Partial Class MainWindow
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "User Management"
         '
+        'UserSearchBox
+        '
+        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
+        Me.UserSearchBox.Name = "UserSearchBox"
+        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
+        Me.UserSearchBox.TabIndex = 25
+        '
         'GroupBox11
         '
         Me.GroupBox11.Controls.Add(Me.GroupBox1)
@@ -348,13 +355,6 @@ Partial Class MainWindow
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
-        '
-        'UserSearchBox
-        '
-        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
-        Me.UserSearchBox.Name = "UserSearchBox"
-        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
-        Me.UserSearchBox.TabIndex = 25
         '
         'MainWindow
         '
