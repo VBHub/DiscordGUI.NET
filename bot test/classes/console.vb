@@ -3,7 +3,7 @@
         command.ToLower()
         Select Case command
             Case "print"
-                Discord.Net.commands
+
             Case "kick"
 
             Case "ban"
