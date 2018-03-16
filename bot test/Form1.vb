@@ -377,8 +377,27 @@ Public Class MainWindow
     End Sub
 
     Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
-        UserAvatar.setAvatar(UserList.SelectedItem.GetAvatarUrl(), UserList.SelectedItem.UserName)
+        With UserList.SelectedItem
+            UserAvatar.setAvatar(.GetAvatarUrl(), .UserName)
+            UserAvatar.setDatecreated(.CreatedAt.ToString())
+            UserAvatar.setDateJoined(.JoinedAt.ToString())
+            UserAvatar.setUserId(.id)
+
+
+            If .Nickname IsNot Nothing Then
+                UserAvatar.setNickname(.Nickname, True)
+            Else
+                UserAvatar.setNickname("This user has no Nickname", False)
+
+            End If
+
+        End With
+
+
+
+
         UserAvatar.ShowDialog()
+
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles UserSearchBox.TextChanged
@@ -388,4 +407,5 @@ Public Class MainWindow
         End If
     End Sub
     ''__________________________________________testing_______________________________
+
 End Class
