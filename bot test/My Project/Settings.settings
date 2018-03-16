@@ -32,5 +32,8 @@
     <Setting Name="CurrentBotColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">ControlText</Value>
     </Setting>
+    <Setting Name="AvatarScale" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">512</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

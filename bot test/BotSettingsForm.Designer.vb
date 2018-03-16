@@ -22,6 +22,7 @@ Partial Class BotSettingsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BotSettingsForm))
         Me.TokenInput = New System.Windows.Forms.TextBox()
         Me.SaveToken = New System.Windows.Forms.Button()
         Me.ReloadBotButton = New System.Windows.Forms.Button()
@@ -33,14 +34,18 @@ Partial Class BotSettingsForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.pl_txt = New System.Windows.Forms.TextBox()
         Me.ColourSettings = New System.Windows.Forms.GroupBox()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.Avatarscale = New System.Windows.Forms.GroupBox()
+        Me.AvatarScaleList = New System.Windows.Forms.ListBox()
+        Me.SaveSettings = New System.Windows.Forms.Button()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.ColourSettings.SuspendLayout()
+        Me.Avatarscale.SuspendLayout()
         Me.SuspendLayout()
         '
         'TokenInput
@@ -193,16 +198,47 @@ Partial Class BotSettingsForm
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Guild:"
         '
+        'Avatarscale
+        '
+        Me.Avatarscale.Controls.Add(Me.AvatarScaleList)
+        Me.Avatarscale.Location = New System.Drawing.Point(671, 50)
+        Me.Avatarscale.Name = "Avatarscale"
+        Me.Avatarscale.Size = New System.Drawing.Size(118, 108)
+        Me.Avatarscale.TabIndex = 30
+        Me.Avatarscale.TabStop = False
+        Me.Avatarscale.Text = "Avatar scale"
+        '
+        'AvatarScaleList
+        '
+        Me.AvatarScaleList.FormattingEnabled = True
+        Me.AvatarScaleList.Items.AddRange(New Object() {"64", "128", "256", "512", "1024", "2048"})
+        Me.AvatarScaleList.Location = New System.Drawing.Point(6, 19)
+        Me.AvatarScaleList.Name = "AvatarScaleList"
+        Me.AvatarScaleList.Size = New System.Drawing.Size(100, 82)
+        Me.AvatarScaleList.TabIndex = 0
+        '
+        'SaveSettings
+        '
+        Me.SaveSettings.Location = New System.Drawing.Point(746, 174)
+        Me.SaveSettings.Name = "SaveSettings"
+        Me.SaveSettings.Size = New System.Drawing.Size(102, 24)
+        Me.SaveSettings.TabIndex = 31
+        Me.SaveSettings.Text = "Save Settings"
+        Me.SaveSettings.UseVisualStyleBackColor = True
+        '
         'BotSettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 198)
+        Me.ClientSize = New System.Drawing.Size(855, 198)
+        Me.Controls.Add(Me.SaveSettings)
+        Me.Controls.Add(Me.Avatarscale)
         Me.Controls.Add(Me.ColourSettings)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.ReloadBotButton)
         Me.Controls.Add(Me.SaveToken)
         Me.Controls.Add(Me.TokenInput)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "BotSettingsForm"
         Me.Text = "BotSettingsForm"
         Me.GroupBox5.ResumeLayout(False)
@@ -210,6 +246,7 @@ Partial Class BotSettingsForm
         Me.GroupBox7.PerformLayout()
         Me.ColourSettings.ResumeLayout(False)
         Me.ColourSettings.PerformLayout()
+        Me.Avatarscale.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -231,4 +268,7 @@ Partial Class BotSettingsForm
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Avatarscale As GroupBox
+    Friend WithEvents SaveSettings As Button
+    Friend WithEvents AvatarScaleList As ListBox
 End Class

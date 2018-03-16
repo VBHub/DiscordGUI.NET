@@ -24,6 +24,7 @@ Public Class MainWindow
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
         Label3.Text = "Status: starting up"
+
         startup()
 
 
@@ -378,11 +379,10 @@ Public Class MainWindow
 
     Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
         With UserList.SelectedItem
-            UserAvatar.setAvatar(.GetAvatarUrl(), .UserName)
+            UserAvatar.setAvatar(.GetAvatarUrl(0, My.Settings.AvatarScale), .UserName)
             UserAvatar.setDatecreated(.CreatedAt.ToString())
             UserAvatar.setDateJoined(.JoinedAt.ToString())
             UserAvatar.setUserId(.id)
-
 
             If .Nickname IsNot Nothing Then
                 UserAvatar.setNickname(.Nickname, True)
@@ -390,7 +390,7 @@ Public Class MainWindow
                 UserAvatar.setNickname("This user has no Nickname", False)
 
             End If
-
+            UserAvatar.setUserpermissions(.GuildPermissions.ToList())
         End With
 
 

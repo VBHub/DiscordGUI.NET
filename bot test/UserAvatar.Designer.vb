@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class UserAvatar
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class UserAvatar
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserAvatar))
         Me.UserAvatarImage = New System.Windows.Forms.PictureBox()
         Me.UserAvatarUrl = New System.Windows.Forms.TextBox()
         Me.CreatedLabel = New System.Windows.Forms.Label()
@@ -32,6 +33,7 @@ Partial Class UserAvatar
         Me.Nickname = New System.Windows.Forms.Label()
         Me.IDlabel = New System.Windows.Forms.Label()
         Me.UserId = New System.Windows.Forms.Label()
+        Me.PermissionBox = New System.Windows.Forms.ListBox()
         CType(Me.UserAvatarImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -40,7 +42,7 @@ Partial Class UserAvatar
         Me.UserAvatarImage.Location = New System.Drawing.Point(49, 12)
         Me.UserAvatarImage.Name = "UserAvatarImage"
         Me.UserAvatarImage.Size = New System.Drawing.Size(399, 314)
-        Me.UserAvatarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.UserAvatarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.UserAvatarImage.TabIndex = 0
         Me.UserAvatarImage.TabStop = False
         '
@@ -124,11 +126,20 @@ Partial Class UserAvatar
         Me.UserId.TabIndex = 9
         Me.UserId.Text = "Label1"
         '
+        'PermissionBox
+        '
+        Me.PermissionBox.FormattingEnabled = True
+        Me.PermissionBox.Location = New System.Drawing.Point(650, 12)
+        Me.PermissionBox.Name = "PermissionBox"
+        Me.PermissionBox.Size = New System.Drawing.Size(152, 342)
+        Me.PermissionBox.TabIndex = 10
+        '
         'UserAvatar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(618, 371)
+        Me.ClientSize = New System.Drawing.Size(826, 371)
+        Me.Controls.Add(Me.PermissionBox)
         Me.Controls.Add(Me.UserId)
         Me.Controls.Add(Me.IDlabel)
         Me.Controls.Add(Me.Nickname)
@@ -139,6 +150,7 @@ Partial Class UserAvatar
         Me.Controls.Add(Me.CreatedLabel)
         Me.Controls.Add(Me.UserAvatarUrl)
         Me.Controls.Add(Me.UserAvatarImage)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "UserAvatar"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "UserAvatar"
@@ -158,4 +170,5 @@ Partial Class UserAvatar
     Friend WithEvents Nickname As Label
     Friend WithEvents IDlabel As Label
     Friend WithEvents UserId As Label
+    Friend WithEvents PermissionBox As ListBox
 End Class

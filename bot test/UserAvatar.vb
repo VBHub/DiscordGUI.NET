@@ -1,12 +1,11 @@
 ﻿Public Class UserAvatar
-    Private Sub UserAvatar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+    Dim AvatarUrl
     Public Sub setAvatar(AvatarUrl, UserName)
         If AvatarUrl IsNot Nothing Then
             UserAvatarImage.Load(AvatarUrl)
             UserAvatarUrl.Text = AvatarUrl
         Else
+            UserAvatarImage.Image() = My.Resources.DISCORDGUI_net
             UserAvatarUrl.Text = "No avatar"
         End If
         Me.Text = UserName
@@ -33,5 +32,15 @@
     End Sub
     Public Sub setUserId(ID)
         UserId.Text = ID
+    End Sub
+    Public Sub setUserpermissions(guildpermissions)
+        PermissionBox.Items.Clear()
+        For Each perm In guildpermissions
+            PermissionBox.Items.Add(perm)
+        Next
+    End Sub
+
+    Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class
