@@ -63,9 +63,12 @@ Partial Class MainWindow
         Me.MenuItem5 = New System.Windows.Forms.MenuItem()
         Me.MenuItem6 = New System.Windows.Forms.MenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+<<<<<<< HEAD:bot test/forms/Form1.Designer.vb
         Me.console_output = New System.Windows.Forms.TextBox()
         Me.input = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+=======
+>>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.Designer.vb
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -264,37 +267,37 @@ Partial Class MainWindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem, Me.GetAvatarToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 114)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 136)
         '
         'InsertMentionToolStripMenuItem
         '
         Me.InsertMentionToolStripMenuItem.Name = "InsertMentionToolStripMenuItem"
-        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.InsertMentionToolStripMenuItem.Text = "Insert Mention"
         '
         'SendDMToolStripMenuItem
         '
         Me.SendDMToolStripMenuItem.Name = "SendDMToolStripMenuItem"
-        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SendDMToolStripMenuItem.Text = "Send DM"
         '
         'KickUserToolStripMenuItem
         '
         Me.KickUserToolStripMenuItem.Name = "KickUserToolStripMenuItem"
-        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.KickUserToolStripMenuItem.Text = "Kick User"
         '
         'BanUserToolStripMenuItem
         '
         Me.BanUserToolStripMenuItem.Name = "BanUserToolStripMenuItem"
-        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
         'GetAvatarToolStripMenuItem1
         '
         Me.GetAvatarToolStripMenuItem1.Name = "GetAvatarToolStripMenuItem1"
-        Me.GetAvatarToolStripMenuItem1.Size = New System.Drawing.Size(151, 22)
-        Me.GetAvatarToolStripMenuItem1.Text = "Get Avatar"
+        Me.GetAvatarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.GetAvatarToolStripMenuItem1.Text = "Get User Info"
         '
         'ImageList1
         '
@@ -377,6 +380,7 @@ Partial Class MainWindow
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
+<<<<<<< HEAD:bot test/forms/Form1.Designer.vb
         'console_output
         '
         Me.console_output.BackColor = System.Drawing.Color.Black
@@ -407,6 +411,8 @@ Partial Class MainWindow
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "GroupBox4"
         '
+=======
+>>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.Designer.vb
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)

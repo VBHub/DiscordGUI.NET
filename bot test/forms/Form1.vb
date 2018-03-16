@@ -3,12 +3,11 @@
 '   Best GUI Control Panel for managing Discord Bots
 '            Copyrights (c) 2018 DGUI.NET Team
 '
-'   Project Founder:    Drakkillen
+'   Project Founder:  qui Drakkillen
 '
 '   Developers     :    Zeyad Ahmed
 '                       StackDoubeFlow
 '
-' ======================================================
 
 Imports Discord.Net
 Imports Discord.Commands
@@ -16,10 +15,11 @@ Imports Discord.WebSocket
 Imports System.ComponentModel
 Imports WebSocket4Net
 Imports System.Linq
+Imports YoutubeExplode
 
 Public Class MainWindow
     Dim WithEvents DiscordBot As New DiscordSocketClient
-
+    Dim Youtubeclient As New YoutubeClient
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
@@ -404,6 +404,7 @@ Public Class MainWindow
             UserList.SetSelected(index, True)
         End If
     End Sub
+<<<<<<< HEAD:bot test/forms/Form1.vb
 
     Private Sub MenuItem4_Click(sender As Object, e As EventArgs) Handles MenuItem4.Click
         Process.Start("https://discord.gg/dUWYvc9")
@@ -424,4 +425,8 @@ Public Class MainWindow
     Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
 
     End Sub
+=======
+    ''__________________________________________testing_______________________________
+
+>>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.vb
 End Class
