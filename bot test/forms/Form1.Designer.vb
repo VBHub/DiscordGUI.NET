@@ -42,6 +42,7 @@ Partial Class MainWindow
         Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.UserSearchBox = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.InsertMentionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,15 +51,21 @@ Partial Class MainWindow
         Me.BanUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetAvatarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem2 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem3 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem4 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem5 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem6 = New System.Windows.Forms.MenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.UserSearchBox = New System.Windows.Forms.TextBox()
+        Me.console_output = New System.Windows.Forms.TextBox()
+        Me.input = New System.Windows.Forms.TextBox()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -68,8 +75,8 @@ Partial Class MainWindow
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -235,6 +242,13 @@ Partial Class MainWindow
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "User Management"
         '
+        'UserSearchBox
+        '
+        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
+        Me.UserSearchBox.Name = "UserSearchBox"
+        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
+        Me.UserSearchBox.TabIndex = 25
+        '
         'GroupBox11
         '
         Me.GroupBox11.Controls.Add(Me.GroupBox1)
@@ -288,32 +302,10 @@ Partial Class MainWindow
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(724, 24)
-        Me.MenuStrip1.TabIndex = 31
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenSettingsToolStripMenuItem})
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.SettingsToolStripMenuItem.Text = "Settings"
-        '
-        'OpenSettingsToolStripMenuItem
-        '
-        Me.OpenSettingsToolStripMenuItem.Name = "OpenSettingsToolStripMenuItem"
-        Me.OpenSettingsToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.OpenSettingsToolStripMenuItem.Text = "Open Settings"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(485, 318)
+        Me.Label2.Location = New System.Drawing.Point(350, 318)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 13)
         Me.Label2.TabIndex = 33
@@ -323,7 +315,7 @@ Partial Class MainWindow
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(485, 336)
+        Me.Label3.Location = New System.Drawing.Point(350, 336)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 34
@@ -339,39 +331,98 @@ Partial Class MainWindow
         Me.EmogiAutocomplete.Name = "ContextMenuStrip3"
         Me.EmogiAutocomplete.Size = New System.Drawing.Size(61, 4)
         '
+        'MainMenu1
+        '
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItem2})
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 0
+        Me.MenuItem1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem6})
+        Me.MenuItem1.Text = "Settings"
+        '
+        'MenuItem2
+        '
+        Me.MenuItem2.Index = 1
+        Me.MenuItem2.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem3, Me.MenuItem4, Me.MenuItem5})
+        Me.MenuItem2.Text = "Help"
+        '
+        'MenuItem3
+        '
+        Me.MenuItem3.Index = 0
+        Me.MenuItem3.Text = "Discord"
+        '
+        'MenuItem4
+        '
+        Me.MenuItem4.Index = 1
+        Me.MenuItem4.Text = "Source"
+        '
+        'MenuItem5
+        '
+        Me.MenuItem5.Index = 2
+        Me.MenuItem5.Text = "About"
+        '
+        'MenuItem6
+        '
+        Me.MenuItem6.Index = 0
+        Me.MenuItem6.Text = "Bot Settngs"
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.DiscordGUI.net.My.Resources.Resources.DISCORDGUI_net
-        Me.PictureBox1.Location = New System.Drawing.Point(485, 354)
+        Me.PictureBox1.Location = New System.Drawing.Point(350, 354)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(172, 172)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
-        'UserSearchBox
+        'console_output
         '
-        Me.UserSearchBox.Location = New System.Drawing.Point(14, 265)
-        Me.UserSearchBox.Name = "UserSearchBox"
-        Me.UserSearchBox.Size = New System.Drawing.Size(217, 20)
-        Me.UserSearchBox.TabIndex = 25
+        Me.console_output.BackColor = System.Drawing.Color.Black
+        Me.console_output.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.console_output.Location = New System.Drawing.Point(21, 19)
+        Me.console_output.Multiline = True
+        Me.console_output.Name = "console_output"
+        Me.console_output.Size = New System.Drawing.Size(255, 120)
+        Me.console_output.TabIndex = 35
+        '
+        'input
+        '
+        Me.input.BackColor = System.Drawing.Color.Black
+        Me.input.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.input.Location = New System.Drawing.Point(21, 145)
+        Me.input.Name = "input"
+        Me.input.Size = New System.Drawing.Size(255, 13)
+        Me.input.TabIndex = 36
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.console_output)
+        Me.GroupBox4.Controls.Add(Me.input)
+        Me.GroupBox4.Location = New System.Drawing.Point(619, 403)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox4.TabIndex = 37
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "GroupBox4"
         '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(724, 531)
+        Me.ClientSize = New System.Drawing.Size(843, 561)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Menu = Me.MainMenu1
         Me.Name = "MainWindow"
         Me.Text = "DiscordGUI.NET 1.1.0"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -385,9 +436,9 @@ Partial Class MainWindow
         Me.GroupBox10.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -418,9 +469,6 @@ Partial Class MainWindow
     Friend WithEvents KickUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BanUserToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OpenSettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -429,4 +477,14 @@ Partial Class MainWindow
     Friend WithEvents ShowLastMention As Button
     Friend WithEvents GetAvatarToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents UserSearchBox As TextBox
+    Friend WithEvents MainMenu1 As MainMenu
+    Friend WithEvents MenuItem1 As MenuItem
+    Friend WithEvents MenuItem2 As MenuItem
+    Friend WithEvents MenuItem3 As MenuItem
+    Friend WithEvents MenuItem4 As MenuItem
+    Friend WithEvents MenuItem5 As MenuItem
+    Friend WithEvents MenuItem6 As MenuItem
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents console_output As TextBox
+    Friend WithEvents input As TextBox
 End Class

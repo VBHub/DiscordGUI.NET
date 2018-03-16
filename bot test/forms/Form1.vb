@@ -346,9 +346,7 @@ Public Class MainWindow
         guild.AddBanAsync(UserList.SelectedItem.id, 7, reason)
     End Sub
 
-    Private Sub OpenSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSettingsToolStripMenuItem.Click
-        BotSettingsForm.Show()
-    End Sub
+
     ''__________Get called from BotSettingsForm_________________
 
     Public Sub SetPlayingStatus(inputText, inputUrl)
@@ -386,5 +384,25 @@ Public Class MainWindow
         If index <> -1 Then
             UserList.SetSelected(index, True)
         End If
+    End Sub
+
+    Private Sub MenuItem4_Click(sender As Object, e As EventArgs) Handles MenuItem4.Click
+        Process.Start("https://discord.gg/dUWYvc9")
+    End Sub
+
+    Private Sub MenuItem3_Click(sender As Object, e As EventArgs) Handles MenuItem3.Click
+        Process.Start("https://discord.gg/dUWYvc9")
+    End Sub
+
+    Private Sub MenuItem6_Click(sender As Object, e As EventArgs) Handles MenuItem6.Click
+        BotSettingsForm.Show()
+    End Sub
+
+    Private Sub MenuItem5_Click(sender As Object, e As EventArgs) Handles MenuItem5.Click
+        about.ShowDialog()
+    End Sub
+
+    Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
+
     End Sub
 End Class
