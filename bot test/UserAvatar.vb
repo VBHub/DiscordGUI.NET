@@ -3,8 +3,12 @@
 
     End Sub
     Public Sub setAvatar(AvatarUrl, UserName)
-        UserAvatarImage.Load(AvatarUrl)
-        UserAvatarUrl.Text = AvatarUrl
+        If AvatarUrl IsNot Nothing Then
+            UserAvatarImage.Load(AvatarUrl)
+            UserAvatarUrl.Text = AvatarUrl
+        Else
+            UserAvatarUrl.Text = "No avatar"
+        End If
         Me.Text = UserName
 
     End Sub
