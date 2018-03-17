@@ -50,7 +50,7 @@ Public Class MainWindow
         Dim client = DiscordBot.Guilds
 
         Try
-            Dim channelObj = client.First(Function(c) GuildList.SelectedItem = c.Name)
+            Dim channelObj = GuildList.SelectedItem
             Dim guild = DiscordBot.GetGuild(channelObj.Id)
             For Each channel In guild.TextChannels
                 ChannelList.Items.Add(channel)
@@ -130,13 +130,9 @@ Public Class MainWindow
     Private Sub FillGuild()
         ''this function scans and add all the guilds the bot is memeber of, and store the NAMES as strings (not objects as with channels) inside the guild listbox
         GuildList.Items.Clear()
-        Dim client = DiscordBot.Guilds
-        Try
-            For Each guild In client
-                GuildList.Items.Add(guild.Name)
-            Next
-        Catch ex As Exception
-        End Try
+        For Each guild In DiscordBot.Guilds
+            GuildList.Items.Add(guild)
+        Next
 
     End Sub
 
@@ -330,7 +326,7 @@ Public Class MainWindow
 
     Private Sub KickUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KickUserToolStripMenuItem.Click
         ''kicks the selected user from selected guild
-        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim channelObj = GuildList.SelectedItem
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
         Dim reason As String = InputBox("what is the reason for the kick?")
         guild.GetUser(UserList.SelectedItem.id).KickAsync(reason)
@@ -338,7 +334,7 @@ Public Class MainWindow
 
     Private Sub BanUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BanUserToolStripMenuItem.Click
         ''Bans the selected user from selected guild
-        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim channelObj = GuildList.SelectedItem
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
         Dim reason As String = InputBox("what is the reason for the kick?")
         guild.AddBanAsync(UserList.SelectedItem.id, 7, reason)

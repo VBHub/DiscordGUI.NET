@@ -323,6 +323,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioService.vb" />
     <Content Include="DISCORDGUI.net.ico" />
     <None Include="Resources\DISCORDGUI.net.png" />
   </ItemGroup>
