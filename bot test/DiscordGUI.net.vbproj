@@ -264,6 +264,12 @@
     <Compile Include="UserAvatar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VoiceControllerForm.Designer.vb">
+      <DependentUpon>VoiceControllerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VoiceControllerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BotSettingsForm.resx">
@@ -286,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserAvatar.resx">
       <DependentUpon>UserAvatar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceControllerForm.resx">
+      <DependentUpon>VoiceControllerForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

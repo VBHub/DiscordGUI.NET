@@ -10,15 +10,12 @@
 '
 
 Imports Discord.Net
-Imports Discord.Commands
 Imports Discord.WebSocket
 Imports System.ComponentModel
-Imports WebSocket4Net
-Imports System.Linq
 Imports YoutubeExplode
 
 Public Class MainWindow
-    Dim WithEvents DiscordBot As New DiscordSocketClient
+    Public WithEvents DiscordBot As New DiscordSocketClient
     Dim Youtubeclient As New YoutubeClient
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -405,6 +402,10 @@ Public Class MainWindow
         If index <> -1 Then
             UserList.SetSelected(index, True)
         End If
+    End Sub
+
+    Private Sub OpenVoiceController_Click(sender As Object, e As EventArgs) Handles OpenVoiceController.Click
+        VoiceControllerForm.Show()
     End Sub
     ''__________________________________________testing_______________________________
 
