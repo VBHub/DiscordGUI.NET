@@ -9,6 +9,9 @@
     Dim ConnectedChannel As Discord.Audio.IAudioClient
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
+        If (ChannelList.SelectedItem Is Nothing) Then
+            Return
+        End If
         Dim Channel As Discord.IVoiceChannel = ChannelList.SelectedItem
         If Not ConnectedChannel Is Nothing Then
             DisconnectFromChannel()
@@ -20,7 +23,19 @@
         ConnectedChannel = Await channel.ConnectAsync()
     End Sub
 
-    Private Async Sub DisconnectFromChannel()
+    Private Sub ReloadConnectionState()
+        If ConnectedChannel Is Nothing Then
+            Label1.ForeColor = Color.Red
+            Label1.Text = "Connection Status: Disconnected"
+        Else
+            Label1.Text = "Connection Status: " & ConnectedChannel.ConnectionState.ToString
+            If ConnectedChannel.ConnectionState = Discord.ConnectionState.Connected Then
+                Label1.ForeColor = Color.Green
+            End If
+        End If
+    End Sub
+
+    Public Async Sub DisconnectFromChannel()
         If ConnectedChannel Is Nothing Then
             Return
         End If
@@ -45,7 +60,19 @@
     End Sub
 
     Private Sub ConnectedUsers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ConnectedUsers.SelectedIndexChanged
+        FillUsers()
+    End Sub
 
+    Private Sub FillUsers()
+        If ChannelList.SelectedItem Is Nothing Then
+            Return
+        End If
+        Dim channel As Discord.WebSocket.SocketVoiceChannel = ChannelList.SelectedItem
+        Dim users = channel.Users
+        ConnectedUsers.Items.Clear()
+        For Each user In users
+            ConnectedUsers.Items.Add(user)
+        Next
     End Sub
 
     Private Sub FillChannels()
@@ -58,10 +85,42 @@
             For Each channel In guild.VoiceChannels
                 ChannelList.Items.Add(channel)
             Next
-        Catch e As InvalidOperationException
+        Catch e As Exception
             MsgBox("Please select a guild first", Title:="Error")
             Me.Close()
         End Try
 
+    End Sub
+
+    Private Sub ReloadConnectionStatus_Click(sender As Object, e As EventArgs) Handles ReloadConnectionStatus.Click
+        ReloadConnectionState()
+    End Sub
+
+    Private Sub ReloadUsers_Click(sender As Object, e As EventArgs) Handles ReloadUsers.Click
+        FillUsers()
+    End Sub
+
+    Private Sub ReloadChannels_Click(sender As Object, e As EventArgs) Handles ReloadChannels.Click
+        FillChannels()
+    End Sub
+
+    Private Sub Mute_CheckedChanged(sender As Object, e As EventArgs) Handles Mute.CheckedChanged
+        If ConnectedChannel Is Nothing Then
+            Return
+        End If
+        If Mute.Checked Then
+
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Deafan_CheckedChanged(sender As Object, e As EventArgs) Handles Deafan.CheckedChanged
+        If ConnectedChannel Is Nothing Then
+            Return
+        End If
+        If Deafan.Checked Then
+
+        End If
     End Sub
 End Class

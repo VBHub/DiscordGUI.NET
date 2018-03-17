@@ -22,6 +22,7 @@ Partial Class VoiceControllerForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VoiceControllerForm))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ChannelList = New System.Windows.Forms.ListBox()
         Me.ConnectedUsers = New System.Windows.Forms.ListBox()
@@ -31,6 +32,9 @@ Partial Class VoiceControllerForm
         Me.VoiceUsers = New System.Windows.Forms.GroupBox()
         Me.Deafan = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ReloadConnectionStatus = New System.Windows.Forms.Button()
+        Me.ReloadUsers = New System.Windows.Forms.Button()
+        Me.ReloadChannels = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.VoiceUsers.SuspendLayout()
         Me.SuspendLayout()
@@ -97,7 +101,7 @@ Partial Class VoiceControllerForm
         Me.VoiceUsers.Size = New System.Drawing.Size(200, 313)
         Me.VoiceUsers.TabIndex = 5
         Me.VoiceUsers.TabStop = False
-        Me.VoiceUsers.Text = "Connecred Users"
+        Me.VoiceUsers.Text = "Connected Users"
         '
         'Deafan
         '
@@ -119,11 +123,41 @@ Partial Class VoiceControllerForm
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Connection Status: Disconnected"
         '
+        'ReloadConnectionStatus
+        '
+        Me.ReloadConnectionStatus.Location = New System.Drawing.Point(636, 237)
+        Me.ReloadConnectionStatus.Name = "ReloadConnectionStatus"
+        Me.ReloadConnectionStatus.Size = New System.Drawing.Size(56, 23)
+        Me.ReloadConnectionStatus.TabIndex = 9
+        Me.ReloadConnectionStatus.Text = "Reload"
+        Me.ReloadConnectionStatus.UseVisualStyleBackColor = True
+        '
+        'ReloadUsers
+        '
+        Me.ReloadUsers.Location = New System.Drawing.Point(244, 13)
+        Me.ReloadUsers.Name = "ReloadUsers"
+        Me.ReloadUsers.Size = New System.Drawing.Size(75, 23)
+        Me.ReloadUsers.TabIndex = 10
+        Me.ReloadUsers.Text = "Reload"
+        Me.ReloadUsers.UseVisualStyleBackColor = True
+        '
+        'ReloadChannels
+        '
+        Me.ReloadChannels.Location = New System.Drawing.Point(36, 13)
+        Me.ReloadChannels.Name = "ReloadChannels"
+        Me.ReloadChannels.Size = New System.Drawing.Size(75, 23)
+        Me.ReloadChannels.TabIndex = 11
+        Me.ReloadChannels.Text = "Reload"
+        Me.ReloadChannels.UseVisualStyleBackColor = True
+        '
         'VoiceControllerForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(695, 388)
+        Me.Controls.Add(Me.ReloadChannels)
+        Me.Controls.Add(Me.ReloadUsers)
+        Me.Controls.Add(Me.ReloadConnectionStatus)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Deafan)
         Me.Controls.Add(Me.VoiceUsers)
@@ -131,8 +165,9 @@ Partial Class VoiceControllerForm
         Me.Controls.Add(Me.Mute)
         Me.Controls.Add(Me.Connect)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "VoiceControllerForm"
-        Me.Text = "VoiceControllerForm"
+        Me.Text = "Voice Controller"
         Me.GroupBox1.ResumeLayout(False)
         Me.VoiceUsers.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -149,4 +184,7 @@ Partial Class VoiceControllerForm
     Friend WithEvents VoiceUsers As GroupBox
     Friend WithEvents Deafan As CheckBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents ReloadConnectionStatus As Button
+    Friend WithEvents ReloadUsers As Button
+    Friend WithEvents ReloadChannels As Button
 End Class
