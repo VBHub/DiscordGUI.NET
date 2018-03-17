@@ -1,5 +1,8 @@
 ﻿Public Class VoiceControllerForm
 
+    Private Async Sub GUI_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
+        DisconnectFromChannel()
+    End Sub
 
     Sub Voice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FillChannels()
@@ -35,7 +38,7 @@
         End If
     End Sub
 
-    Public Async Sub DisconnectFromChannel()
+    Private Async Sub DisconnectFromChannel()
         If ConnectedChannel Is Nothing Then
             Return
         End If

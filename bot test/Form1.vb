@@ -29,7 +29,6 @@ Public Class MainWindow
 
     Private Async Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         ''when you close the form, it also logsout the bot
-        VoiceControllerForm.DisconnectFromChannel()
         Await DiscordBot.LogoutAsync()
 
     End Sub
