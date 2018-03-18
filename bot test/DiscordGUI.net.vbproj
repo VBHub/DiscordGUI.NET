@@ -315,6 +315,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DISCORDGUI.net.ico" />
+    <None Include="Resources\to-the-point %281%29.wav" />
+    <None Include="Resources\to-the-point.wav" />
+    <None Include="Resources\to-the-point.mp3" />
+    <None Include="Resources\MentionNotification.bmp" />
     <None Include="Resources\DISCORDGUI.net.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

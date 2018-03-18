@@ -21,5 +21,9 @@
         MentionGuild.Text = My.Settings.LastMentionGuild
         MentionChannel.Text = My.Settings.LastMentionChannel
         MentionMessage.Text = My.Settings.LastMentionMessage
+        If My.Settings.MentionSound = True Then
+            My.Computer.Audio.Play(My.Resources.notification, playMode:=AudioPlayMode.Background)
+        End If
+
     End Sub
 End Class

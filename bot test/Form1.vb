@@ -286,7 +286,9 @@ Public Class MainWindow
                 MentionPopup.setData(GuildName.Name.ToString, msg.Channel.Name.ToString, replaceMentions(msg))
 
                 MentionPopup.ShowDialog()
-                ' MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
+
+
+
             End If
         Catch ex As Exception
 
@@ -406,6 +408,11 @@ Public Class MainWindow
             UserList.SetSelected(index, True)
         End If
     End Sub
+
+    Private Sub Mentionsound_CheckedChanged(sender As Object, e As EventArgs) Handles Mentionsound.CheckedChanged
+        My.Settings.MentionSound = Mentionsound.CheckState
+    End Sub
+
     ''__________________________________________testing_______________________________
 
 End Class
