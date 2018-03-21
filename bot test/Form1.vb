@@ -12,19 +12,16 @@
 Imports Discord.Net
 Imports Discord.WebSocket
 Imports System.ComponentModel
-Imports YoutubeExplode
 
 Public Class MainWindow
     Public WithEvents DiscordBot As New DiscordSocketClient
-    Dim Youtubeclient As New YoutubeClient
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Label3.Text = "Status: starting up"
 
         startup()
-
-
     End Sub
 
     Private Async Sub GUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -60,7 +57,7 @@ Public Class MainWindow
             For Each member In guild.Users
                 UserList.Items.Add(member)
             Next
-        Catch ex As InvalidOperationException
+        Catch ex As Exception
         End Try
 
 
@@ -153,7 +150,7 @@ Public Class MainWindow
 
         Try
             Label3.ForeColor = Color.Red
-            Label3.Text = "Status: login in"
+            Label3.Text = "Status: loging in"
             Try
                 Await DiscordBot.LoginAsync(tokenType:=Discord.TokenType.Bot, token:=My.Settings.token)
             Catch ex As Exception
@@ -162,6 +159,8 @@ Public Class MainWindow
                     Label3.ForeColor = Color.Red
                     Label3.Text = "Status: Invalid Token"
                     Return
+                Else
+                    MsgBox(ErrorValue, Title:="Please contact a developer")
                 End If
 
             End Try

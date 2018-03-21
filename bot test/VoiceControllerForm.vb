@@ -1,15 +1,25 @@
 ﻿Public Class VoiceControllerForm
 
+    Dim YoutubeClient As New YoutubeExplode.YoutubeClient
+
     Private Async Sub GUI_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
         DisconnectFromChannel()
     End Sub
 
+    Dim OutputDevices As IEnumerable(Of NAudio.Wave.DirectSoundDeviceInfo) = NAudio.Wave.DirectSoundOut.Devices
+
     Sub Voice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FormBorderStyle = FormBorderStyle.FixedSingle
         FillChannels()
         Label1.ForeColor = Color.Red
+        For Each Device In OutputDevices
+            OuputChooser.Items.Add(Device.Description)
+        Next
+        OuputChooser.SelectedIndex = 0
     End Sub
 
     Dim ConnectedChannel As Discord.Audio.IAudioClient
+
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
         If (ChannelList.SelectedItem Is Nothing) Then
@@ -124,6 +134,36 @@
         End If
         If Deafan.Checked Then
 
+        Else
+
         End If
+    End Sub
+
+    Dim activeVideo As YoutubeExplode.Models.Video
+    Private Sub YoutubeSearchBox_Enter(sender As Object, e As KeyEventArgs) Handles YoutubeSearchBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SearchButton.PerformClick()
+        End If
+    End Sub
+
+    Private Async Sub SearchButton_ClickAsync(sender As Object, e As EventArgs) Handles SearchButton.Click
+        Dim results = Await YoutubeClient.SearchVideosAsync(YoutubeSearchBox.Text, 1)
+        Dim finalResult = results.First
+        ResultName.Visible = True
+        ResultName.Text = finalResult.Title
+        YoutubePlay.Visible = True
+        activeVideo = finalResult
+        YoutubeThumbnail.Load(activeVideo.Thumbnails.MediumResUrl)
+    End Sub
+
+    Private Async Sub YoutubePlay_ClickAsync(sender As Object, e As EventArgs) Handles YoutubePlay.Click
+        If ConnectedChannel Is Nothing Then
+            Return
+        End If
+        Dim mediaStreamInfoSet = Await YoutubeClient.GetVideoMediaStreamInfosAsync(activeVideo.Id)
+        Dim mediaStraemInfo = mediaStreamInfoSet.Audio.ElementAt(0)
+        Dim mediaStream = Await YoutubeClient.GetMediaStreamAsync(mediaStraemInfo)
+        Dim outStream = ConnectedChannel.CreateDirectPCMStream(Discord.Audio.AudioApplication.Mixed)
+        mediaStream.CopyTo(outStream)
     End Sub
 End Class
