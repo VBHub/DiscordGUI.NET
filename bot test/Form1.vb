@@ -427,10 +427,10 @@ Public Class MainWindow
         Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
         Dim guild = DiscordBot.GetGuild(channelObj.Id)
         Dim rolenames = guild.Roles.ToList()
-
-        Form3.setRoles(rolenames)
-        Form3.setImage(guild.IconUrl())
-        Form3.ShowDialog()
+        GuildInfo.setInfo(guild)
+        GuildInfo.setRoles(rolenames)
+        GuildInfo.setImage(guild.IconUrl())
+        GuildInfo.ShowDialog()
     End Sub
 
     ''__________________________________________testing_______________________________
