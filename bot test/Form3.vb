@@ -10,6 +10,7 @@ Public Class GuildInfo
             RoleList.Items.Add(role)
         Next
     End Sub
+
     Public Sub setInfo(guild)
         Dim splitTime = guild.CreatedAt().ToString().Split("+")
         GuildName.Text = guild.name()
@@ -20,6 +21,7 @@ Public Class GuildInfo
         ChannelCount.Text = guild.channels.count()
         RoleCount.Text = guild.roles.count()
     End Sub
+
     Private Sub RoleList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RoleList.SelectedIndexChanged
         PermissionList.Items.Clear()
         UserList.Items.Clear()
