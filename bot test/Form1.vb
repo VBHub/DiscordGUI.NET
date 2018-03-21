@@ -301,7 +301,17 @@ Public Class MainWindow
         Dim channel As Discord.IMessageChannel = TryCast(ChannelList.SelectedItem, Discord.IMessageChannel)
         channel.SendFileAsync(path)
     End Sub
+    Private Sub GuildList_MouseDown(sender As Object, e As MouseEventArgs) Handles GuildList.MouseDown
+        If e.Button = MouseButtons.Right Then
+            If GuildList.SelectedIndices.Count > 0 Then
+                GuildList.ContextMenuStrip = Me.GuildListMenu
 
+            Else
+                GuildList.ContextMenuStrip = Nothing
+
+            End If
+        End If
+    End Sub
 
 
 
@@ -411,6 +421,16 @@ Public Class MainWindow
 
     Private Sub Mentionsound_CheckedChanged(sender As Object, e As EventArgs) Handles Mentionsound.CheckedChanged
         My.Settings.MentionSound = Mentionsound.CheckState
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim guild = DiscordBot.GetGuild(channelObj.Id)
+        Dim rolenames = guild.Roles.ToList()
+
+        Form3.setRoles(rolenames)
+        Form3.setImage(guild.IconUrl())
+        Form3.ShowDialog()
     End Sub
 
     ''__________________________________________testing_______________________________

@@ -39,6 +39,7 @@ Partial Class MainWindow
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Mentionsound = New System.Windows.Forms.CheckBox()
         Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
@@ -59,7 +60,8 @@ Partial Class MainWindow
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Mentionsound = New System.Windows.Forms.CheckBox()
+        Me.GuildListMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -71,6 +73,7 @@ Partial Class MainWindow
         Me.ContextMenuStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GuildListMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -204,6 +207,18 @@ Partial Class MainWindow
         Me.GroupBox8.TabIndex = 27
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Chat Commands"
+        '
+        'Mentionsound
+        '
+        Me.Mentionsound.AutoSize = True
+        Me.Mentionsound.Checked = True
+        Me.Mentionsound.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Mentionsound.Location = New System.Drawing.Point(192, 23)
+        Me.Mentionsound.Name = "Mentionsound"
+        Me.Mentionsound.Size = New System.Drawing.Size(96, 17)
+        Me.Mentionsound.TabIndex = 35
+        Me.Mentionsound.Text = "Mention sound"
+        Me.Mentionsound.UseVisualStyleBackColor = True
         '
         'ShowLastMention
         '
@@ -358,17 +373,17 @@ Partial Class MainWindow
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
-        'Mentionsound
+        'GuildListMenu
         '
-        Me.Mentionsound.AutoSize = True
-        Me.Mentionsound.Checked = True
-        Me.Mentionsound.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.Mentionsound.Location = New System.Drawing.Point(192, 23)
-        Me.Mentionsound.Name = "Mentionsound"
-        Me.Mentionsound.Size = New System.Drawing.Size(96, 17)
-        Me.Mentionsound.TabIndex = 35
-        Me.Mentionsound.Text = "Mention sound"
-        Me.Mentionsound.UseVisualStyleBackColor = True
+        Me.GuildListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.GuildListMenu.Name = "GuildListMenu"
+        Me.GuildListMenu.Size = New System.Drawing.Size(153, 48)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Text = "RolesMenu"
         '
         'MainWindow
         '
@@ -402,6 +417,7 @@ Partial Class MainWindow
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GuildListMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -444,4 +460,6 @@ Partial Class MainWindow
     Friend WithEvents GetAvatarToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents UserSearchBox As TextBox
     Friend WithEvents Mentionsound As CheckBox
+    Friend WithEvents GuildListMenu As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class

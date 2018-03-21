@@ -132,6 +132,7 @@ Partial Class UserAvatar
         Me.PermissionBox.FormattingEnabled = True
         Me.PermissionBox.Location = New System.Drawing.Point(650, 12)
         Me.PermissionBox.Name = "PermissionBox"
+        Me.PermissionBox.SelectionMode = System.Windows.Forms.SelectionMode.None
         Me.PermissionBox.Size = New System.Drawing.Size(152, 368)
         Me.PermissionBox.Sorted = True
         Me.PermissionBox.TabIndex = 10
