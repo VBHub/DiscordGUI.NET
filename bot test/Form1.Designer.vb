@@ -39,9 +39,9 @@ Partial Class MainWindow
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.Mentionsound = New System.Windows.Forms.CheckBox()
         Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Mentionsound = New System.Windows.Forms.CheckBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.UserSearchBox = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
@@ -58,17 +58,13 @@ Partial Class MainWindow
         Me.EmogiAutocomplete = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
         Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem6 = New System.Windows.Forms.MenuItem()
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
         Me.MenuItem3 = New System.Windows.Forms.MenuItem()
         Me.MenuItem4 = New System.Windows.Forms.MenuItem()
-        Me.MenuItem5 = New System.Windows.Forms.MenuItem()
-        Me.MenuItem6 = New System.Windows.Forms.MenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GuildListMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.console_output = New System.Windows.Forms.TextBox()
-        Me.input = New System.Windows.Forms.TextBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -79,7 +75,7 @@ Partial Class MainWindow
         Me.GroupBox11.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox4.SuspendLayout()
+        Me.GuildListMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -212,6 +208,7 @@ Partial Class MainWindow
         Me.GroupBox8.TabIndex = 27
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Chat Commands"
+        '
         'ShowLastMention
         '
         Me.ShowLastMention.Location = New System.Drawing.Point(192, 45)
@@ -232,6 +229,13 @@ Partial Class MainWindow
         Me.GroupBox9.TabIndex = 28
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Message"
+        '
+        'Mentionsound
+        '
+        Me.Mentionsound.Location = New System.Drawing.Point(0, 0)
+        Me.Mentionsound.Name = "Mentionsound"
+        Me.Mentionsound.Size = New System.Drawing.Size(104, 24)
+        Me.Mentionsound.TabIndex = 0
         '
         'GroupBox10
         '
@@ -343,10 +347,15 @@ Partial Class MainWindow
         Me.MenuItem1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem6})
         Me.MenuItem1.Text = "Settings"
         '
+        'MenuItem6
+        '
+        Me.MenuItem6.Index = 0
+        Me.MenuItem6.Text = "Bot Settngs"
+        '
         'MenuItem2
         '
         Me.MenuItem2.Index = 1
-        Me.MenuItem2.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem3, Me.MenuItem4, Me.MenuItem5})
+        Me.MenuItem2.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem3, Me.MenuItem4})
         Me.MenuItem2.Text = "Help"
         '
         'MenuItem3
@@ -359,15 +368,11 @@ Partial Class MainWindow
         Me.MenuItem4.Index = 1
         Me.MenuItem4.Text = "Source"
         '
-        'MenuItem5
+        'ToolStripMenuItem1
         '
-        Me.MenuItem5.Index = 2
-        Me.MenuItem5.Text = "About"
-        '
-        'MenuItem6
-        '
-        Me.MenuItem6.Index = 0
-        Me.MenuItem6.Text = "Bot Settngs"
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(133, 22)
+        Me.ToolStripMenuItem1.Text = "RolesMenu"
         '
         'PictureBox1
         '
@@ -379,55 +384,18 @@ Partial Class MainWindow
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
-        'console_output
-        '
-        Me.console_output.BackColor = System.Drawing.Color.Black
-        Me.console_output.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.console_output.Location = New System.Drawing.Point(21, 19)
-        Me.console_output.Multiline = True
-        Me.console_output.Name = "console_output"
-        Me.console_output.Size = New System.Drawing.Size(255, 120)
-        Me.console_output.TabIndex = 35
-        '
-        'input
-        '
-        Me.input.BackColor = System.Drawing.Color.Black
-        Me.input.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.input.Location = New System.Drawing.Point(21, 145)
-        Me.input.Name = "input"
-        Me.input.Size = New System.Drawing.Size(255, 13)
-        Me.input.TabIndex = 36
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.console_output)
-        Me.GroupBox4.Controls.Add(Me.input)
-        Me.GroupBox4.Location = New System.Drawing.Point(619, 403)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox4.TabIndex = 37
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
-        '
         'GuildListMenu
         '
         Me.GuildListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.GuildListMenu.Name = "GuildListMenu"
-        Me.GuildListMenu.Size = New System.Drawing.Size(153, 48)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ToolStripMenuItem1.Text = "RolesMenu"
+        Me.GuildListMenu.Size = New System.Drawing.Size(134, 26)
         '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(843, 561)
-        Me.Controls.Add(Me.GroupBox4)
+        Me.ClientSize = New System.Drawing.Size(703, 561)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
@@ -451,8 +419,6 @@ Partial Class MainWindow
         Me.GroupBox11.ResumeLayout(False)
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.GuildListMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -497,11 +463,7 @@ Partial Class MainWindow
     Friend WithEvents MenuItem2 As MenuItem
     Friend WithEvents MenuItem3 As MenuItem
     Friend WithEvents MenuItem4 As MenuItem
-    Friend WithEvents MenuItem5 As MenuItem
     Friend WithEvents MenuItem6 As MenuItem
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents console_output As TextBox
-    Friend WithEvents input As TextBox
     Friend WithEvents Mentionsound As CheckBox
     Friend WithEvents GuildListMenu As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem

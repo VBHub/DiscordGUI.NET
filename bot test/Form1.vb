@@ -428,12 +428,8 @@ Public Class MainWindow
         BotSettingsForm.Show()
     End Sub
 
-    Private Sub MenuItem5_Click(sender As Object, e As EventArgs) Handles MenuItem5.Click
-    End Sub
 
-    Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
 
-    End Sub
 
     Private Sub Mentionsound_CheckedChanged(sender As Object, e As EventArgs) Handles Mentionsound.CheckedChanged
         My.Settings.MentionSound = Mentionsound.CheckState
