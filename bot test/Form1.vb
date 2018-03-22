@@ -19,11 +19,12 @@ Imports YoutubeExplode
 
 Public Class MainWindow
     Dim WithEvents DiscordBot As New DiscordSocketClient
-    Dim Youtubeclient As New YoutubeClient
 
     Sub GUI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ''when the form is loaded, it runs the startup() function, which logs in the bot with the token specified, 
+        DiscordBot = New DiscordSocketClient
         Label3.Text = "Status: starting up"
+
         startup()
 
 
@@ -285,7 +286,9 @@ Public Class MainWindow
                 MentionPopup.setData(GuildName.Name.ToString, msg.Channel.Name.ToString, replaceMentions(msg))
 
                 MentionPopup.ShowDialog()
-                ' MsgBox("Guild: " & GuildName.Name & "  Channel: " & msg.Channel.Name & Environment.NewLine & msg.Author.Username & ": " & replaceMentions(msg), Title:="you got mentioned!")
+
+
+
             End If
         Catch ex As Exception
 
@@ -298,7 +301,17 @@ Public Class MainWindow
         Dim channel As Discord.IMessageChannel = TryCast(ChannelList.SelectedItem, Discord.IMessageChannel)
         channel.SendFileAsync(path)
     End Sub
+    Private Sub GuildList_MouseDown(sender As Object, e As MouseEventArgs) Handles GuildList.MouseDown
+        If e.Button = MouseButtons.Right Then
+            If GuildList.SelectedIndices.Count > 0 Then
+                GuildList.ContextMenuStrip = Me.GuildListMenu
 
+            Else
+                GuildList.ContextMenuStrip = Nothing
+
+            End If
+        End If
+    End Sub
 
 
 
@@ -376,11 +389,10 @@ Public Class MainWindow
 
     Private Sub GetAvatarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GetAvatarToolStripMenuItem1.Click
         With UserList.SelectedItem
-            UserAvatar.setAvatar(.GetAvatarUrl(), .UserName)
+            UserAvatar.setAvatar(.GetAvatarUrl(0, My.Settings.AvatarScale), .UserName)
             UserAvatar.setDatecreated(.CreatedAt.ToString())
             UserAvatar.setDateJoined(.JoinedAt.ToString())
             UserAvatar.setUserId(.id)
-
 
             If .Nickname IsNot Nothing Then
                 UserAvatar.setNickname(.Nickname, True)
@@ -388,7 +400,6 @@ Public Class MainWindow
                 UserAvatar.setNickname("This user has no Nickname", False)
 
             End If
-
         End With
 
 
@@ -404,7 +415,6 @@ Public Class MainWindow
             UserList.SetSelected(index, True)
         End If
     End Sub
-<<<<<<< HEAD:bot test/forms/Form1.vb
 
     Private Sub MenuItem4_Click(sender As Object, e As EventArgs) Handles MenuItem4.Click
         Process.Start("https://discord.gg/dUWYvc9")
@@ -419,14 +429,26 @@ Public Class MainWindow
     End Sub
 
     Private Sub MenuItem5_Click(sender As Object, e As EventArgs) Handles MenuItem5.Click
-        about.ShowDialog()
     End Sub
 
     Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
 
     End Sub
-=======
+
+    Private Sub Mentionsound_CheckedChanged(sender As Object, e As EventArgs) Handles Mentionsound.CheckedChanged
+        My.Settings.MentionSound = Mentionsound.CheckState
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim guild = DiscordBot.GetGuild(channelObj.Id)
+        Dim rolenames = guild.Roles.ToList()
+        GuildInfo.setInfo(guild)
+        GuildInfo.setRoles(rolenames)
+        GuildInfo.setImage(guild.IconUrl())
+        GuildInfo.ShowDialog()
+    End Sub
+    
     ''__________________________________________testing_______________________________
 
->>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.vb
 End Class

@@ -67,7 +67,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>forms\DISCORDGUI.net.ico</ApplicationIcon>
+    <ApplicationIcon>DISCORDGUI.net.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
@@ -217,43 +217,36 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\console.vb" />
-    <Compile Include="forms\about.Designer.vb">
-      <DependentUpon>about.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\about.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="forms\BotSettingsForm.Designer.vb">
+    <Compile Include="BotSettingsForm.Designer.vb">
       <DependentUpon>BotSettingsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\BotSettingsForm.vb">
+    <Compile Include="BotSettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\console_forum.Designer.vb">
-      <DependentUpon>console_forum.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\console_forum.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Form1.Designer.vb">
+    <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form2.Designer.vb">
+    <Compile Include="Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Form2.vb">
+    <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\MentionPopup.Designer.vb">
+    <Compile Include="Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MentionPopup.Designer.vb">
       <DependentUpon>MentionPopup.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\MentionPopup.vb">
+    <Compile Include="MentionPopup.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -271,30 +264,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="forms\UserAvatar.Designer.vb">
+    <Compile Include="UserAvatar.Designer.vb">
       <DependentUpon>UserAvatar.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\UserAvatar.vb">
+    <Compile Include="UserAvatar.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="forms\about.resx">
-      <DependentUpon>about.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\BotSettingsForm.resx">
+    <EmbeddedResource Include="BotSettingsForm.resx">
       <DependentUpon>BotSettingsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\console_forum.resx">
-      <DependentUpon>console_forum.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form1.resx">
+    <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form2.resx">
+    <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\MentionPopup.resx">
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MentionPopup.resx">
       <DependentUpon>MentionPopup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -303,7 +293,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\UserAvatar.resx">
+    <EmbeddedResource Include="UserAvatar.resx">
       <DependentUpon>UserAvatar.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -333,7 +323,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="forms\DISCORDGUI.net.ico" />
+    <Content Include="DISCORDGUI.net.ico" />
+    <Content Include="DISCORDGUI.net.ico" />
+    <None Include="Resources\to-the-point %281%29.wav" />
+    <None Include="Resources\to-the-point.wav" />
+    <None Include="Resources\to-the-point.mp3" />
+    <None Include="Resources\MentionNotification.bmp" />
     <None Include="Resources\DISCORDGUI.net.png" />
   </ItemGroup>
   <ItemGroup />

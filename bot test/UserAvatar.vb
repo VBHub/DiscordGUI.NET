@@ -19,15 +19,18 @@
     End Sub
     Public Sub setNickname(nick, state)
         If state = False Then
-            Nickname.ForeColor = Color.Red
+            NicknameLable.ForeColor = Color.Red
         Else
-            Nickname.ForeColor = Color.Black
+            NicknameLable.ForeColor = Color.Black
         End If
-        Nickname.Text = nick
+        NicknameLable.Text = nick
 
 
     End Sub
     Public Sub setUserId(ID)
         UserId.Text = ID
     End Sub
+
+
 End Class
+

@@ -1,3 +1,4 @@
 .vs/
 bot test/bin/
 bot test/obj/
+*.diagsession

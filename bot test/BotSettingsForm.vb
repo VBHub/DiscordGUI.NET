@@ -40,4 +40,9 @@
         Dim Selectedcolor = ColorDialog1.Color
         My.Settings.CurrentBotColor = Selectedcolor
     End Sub
+
+    Private Sub AvatarScaleList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AvatarScaleList.SelectedIndexChanged
+        My.Settings.AvatarScale = AvatarScaleList.SelectedItem()
+
+    End Sub
 End Class

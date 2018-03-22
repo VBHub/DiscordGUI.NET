@@ -39,6 +39,7 @@ Partial Class MainWindow
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Mentionsound = New System.Windows.Forms.CheckBox()
         Me.ShowLastMention = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
@@ -62,13 +63,12 @@ Partial Class MainWindow
         Me.MenuItem4 = New System.Windows.Forms.MenuItem()
         Me.MenuItem5 = New System.Windows.Forms.MenuItem()
         Me.MenuItem6 = New System.Windows.Forms.MenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-<<<<<<< HEAD:bot test/forms/Form1.Designer.vb
+        Me.GuildListMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.console_output = New System.Windows.Forms.TextBox()
         Me.input = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-=======
->>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.Designer.vb
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -163,7 +163,7 @@ Partial Class MainWindow
         'MentionToggle
         '
         Me.MentionToggle.AutoSize = True
-        Me.MentionToggle.Location = New System.Drawing.Point(192, 27)
+        Me.MentionToggle.Location = New System.Drawing.Point(192, 9)
         Me.MentionToggle.Name = "MentionToggle"
         Me.MentionToggle.Size = New System.Drawing.Size(147, 17)
         Me.MentionToggle.TabIndex = 21
@@ -212,7 +212,6 @@ Partial Class MainWindow
         Me.GroupBox8.TabIndex = 27
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Chat Commands"
-        '
         'ShowLastMention
         '
         Me.ShowLastMention.Location = New System.Drawing.Point(192, 45)
@@ -267,36 +266,36 @@ Partial Class MainWindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertMentionToolStripMenuItem, Me.SendDMToolStripMenuItem, Me.KickUserToolStripMenuItem, Me.BanUserToolStripMenuItem, Me.GetAvatarToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 136)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(152, 114)
         '
         'InsertMentionToolStripMenuItem
         '
         Me.InsertMentionToolStripMenuItem.Name = "InsertMentionToolStripMenuItem"
-        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InsertMentionToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.InsertMentionToolStripMenuItem.Text = "Insert Mention"
         '
         'SendDMToolStripMenuItem
         '
         Me.SendDMToolStripMenuItem.Name = "SendDMToolStripMenuItem"
-        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendDMToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.SendDMToolStripMenuItem.Text = "Send DM"
         '
         'KickUserToolStripMenuItem
         '
         Me.KickUserToolStripMenuItem.Name = "KickUserToolStripMenuItem"
-        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KickUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.KickUserToolStripMenuItem.Text = "Kick User"
         '
         'BanUserToolStripMenuItem
         '
         Me.BanUserToolStripMenuItem.Name = "BanUserToolStripMenuItem"
-        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BanUserToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.BanUserToolStripMenuItem.Text = "Ban User"
         '
         'GetAvatarToolStripMenuItem1
         '
         Me.GetAvatarToolStripMenuItem1.Name = "GetAvatarToolStripMenuItem1"
-        Me.GetAvatarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.GetAvatarToolStripMenuItem1.Size = New System.Drawing.Size(151, 22)
         Me.GetAvatarToolStripMenuItem1.Text = "Get User Info"
         '
         'ImageList1
@@ -380,7 +379,6 @@ Partial Class MainWindow
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
-<<<<<<< HEAD:bot test/forms/Form1.Designer.vb
         'console_output
         '
         Me.console_output.BackColor = System.Drawing.Color.Black
@@ -411,8 +409,18 @@ Partial Class MainWindow
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "GroupBox4"
         '
-=======
->>>>>>> 426859a59eb33aac0a3a2696dff0b8bf86014afa:bot test/Form1.Designer.vb
+        'GuildListMenu
+        '
+        Me.GuildListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.GuildListMenu.Name = "GuildListMenu"
+        Me.GuildListMenu.Size = New System.Drawing.Size(153, 48)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Text = "RolesMenu"
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -445,6 +453,7 @@ Partial Class MainWindow
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GuildListMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -493,4 +502,7 @@ Partial Class MainWindow
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents console_output As TextBox
     Friend WithEvents input As TextBox
+    Friend WithEvents Mentionsound As CheckBox
+    Friend WithEvents GuildListMenu As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class
