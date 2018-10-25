@@ -13,7 +13,6 @@ Imports Discord.Net
 Imports Discord.Commands
 Imports Discord.WebSocket
 Imports System.ComponentModel
-Imports WebSocket4Net
 Imports System.Linq
 Imports YoutubeExplode
 
@@ -152,9 +151,7 @@ Public Class MainWindow
 
 
 
-        DiscordBot = New DiscordSocketClient(New DiscordSocketConfig With {
-                  .WebSocketProvider = Providers.WS4Net.WS4NetProvider.Instance
-        })
+        DiscordBot = New DiscordSocketClient()
 
 
         Try
