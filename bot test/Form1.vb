@@ -309,7 +309,17 @@ Public Class MainWindow
             End If
         End If
     End Sub
+    Private Sub ChannelList_MouseDown(sender As Object, e As MouseEventArgs) Handles ChannelList.MouseDown
+        If e.Button = MouseButtons.Right Then
+            If ChannelList.SelectedIndices.Count > 0 Then
+                ChannelList.ContextMenuStrip = Me.InviteMenuStrip
 
+            Else
+                ChannelList.ContextMenuStrip = Nothing
+
+            End If
+        End If
+    End Sub
 
 
 
@@ -445,7 +455,22 @@ Public Class MainWindow
         GuildInfo.setImage(guild.IconUrl())
         GuildInfo.ShowDialog()
     End Sub
-    
+
+    Private Async Sub InviteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InviteToolStripMenuItem.Click
+        Dim channelObj = DiscordBot.Guilds.First(Function(c) GuildList.SelectedItem = c.Name)
+        Dim chan = channelObj.Channels.First(Function(b) ChannelList.SelectedItem.name = b.Name)
+        Dim invites = Await channelObj.GetInvitesAsync()
+        If invites.Count > 0 Then
+            For Each links In invites
+                InviteBox.Items.Add(links.ChannelName & "|" & links.Code)
+            Next
+        Else
+            MsgBox("found no invite links")
+        End If
+    End Sub
+
+
+
     ''__________________________________________testing_______________________________
 
 End Class

@@ -65,6 +65,9 @@ Partial Class MainWindow
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GuildListMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.InviteMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.InviteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InviteBox = New System.Windows.Forms.ListBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -76,6 +79,7 @@ Partial Class MainWindow
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GuildListMenu.SuspendLayout()
+        Me.InviteMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'SendMessage
@@ -390,12 +394,33 @@ Partial Class MainWindow
         Me.GuildListMenu.Name = "GuildListMenu"
         Me.GuildListMenu.Size = New System.Drawing.Size(134, 26)
         '
+        'InviteMenuStrip
+        '
+        Me.InviteMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InviteToolStripMenuItem})
+        Me.InviteMenuStrip.Name = "InviteMenuStrip"
+        Me.InviteMenuStrip.Size = New System.Drawing.Size(104, 26)
+        '
+        'InviteToolStripMenuItem
+        '
+        Me.InviteToolStripMenuItem.Name = "InviteToolStripMenuItem"
+        Me.InviteToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.InviteToolStripMenuItem.Text = "Invite"
+        '
+        'InviteBox
+        '
+        Me.InviteBox.FormattingEnabled = True
+        Me.InviteBox.Location = New System.Drawing.Point(540, 350)
+        Me.InviteBox.Name = "InviteBox"
+        Me.InviteBox.Size = New System.Drawing.Size(151, 173)
+        Me.InviteBox.TabIndex = 35
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(703, 561)
+        Me.Controls.Add(Me.InviteBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
@@ -420,6 +445,7 @@ Partial Class MainWindow
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GuildListMenu.ResumeLayout(False)
+        Me.InviteMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -467,4 +493,7 @@ Partial Class MainWindow
     Friend WithEvents Mentionsound As CheckBox
     Friend WithEvents GuildListMenu As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents InviteMenuStrip As ContextMenuStrip
+    Friend WithEvents InviteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InviteBox As ListBox
 End Class
