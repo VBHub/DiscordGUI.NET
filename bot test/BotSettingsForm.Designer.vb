@@ -28,20 +28,17 @@ Partial Class BotSettingsForm
         Me.ReloadBotButton = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.str_url = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.pl_txt = New System.Windows.Forms.TextBox()
         Me.ColourSettings = New System.Windows.Forms.GroupBox()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.Avatarscale = New System.Windows.Forms.GroupBox()
-        Me.AvatarScaleList = New System.Windows.Forms.ListBox()
-        Me.SaveSettings = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.Avatarscale = New System.Windows.Forms.GroupBox()
+        Me.AvatarScaleList = New System.Windows.Forms.ListBox()
+        Me.SaveSettings = New System.Windows.Forms.Button()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.ColourSettings.SuspendLayout()
@@ -80,49 +77,21 @@ Partial Class BotSettingsForm
         Me.GroupBox5.Controls.Add(Me.GroupBox7)
         Me.GroupBox5.Location = New System.Drawing.Point(12, 50)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(408, 127)
+        Me.GroupBox5.Size = New System.Drawing.Size(408, 101)
         Me.GroupBox5.TabIndex = 27
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Bot Settings"
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.Button2)
-        Me.GroupBox7.Controls.Add(Me.Label2)
-        Me.GroupBox7.Controls.Add(Me.str_url)
         Me.GroupBox7.Controls.Add(Me.Button1)
         Me.GroupBox7.Controls.Add(Me.pl_txt)
         Me.GroupBox7.Location = New System.Drawing.Point(6, 19)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(386, 99)
+        Me.GroupBox7.Size = New System.Drawing.Size(386, 65)
         Me.GroupBox7.TabIndex = 27
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Current Playing Message"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(266, 59)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(111, 29)
-        Me.Button2.TabIndex = 31
-        Me.Button2.Text = "Save Them"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 52)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(236, 13)
-        Me.Label2.TabIndex = 30
-        Me.Label2.Text = "Streaming URL [Leave Empty if you dont want it]"
-        '
-        'str_url
-        '
-        Me.str_url.Location = New System.Drawing.Point(12, 68)
-        Me.str_url.Name = "str_url"
-        Me.str_url.Size = New System.Drawing.Size(248, 20)
-        Me.str_url.TabIndex = 30
         '
         'Button1
         '
@@ -152,34 +121,6 @@ Partial Class BotSettingsForm
         Me.ColourSettings.TabIndex = 28
         Me.ColourSettings.TabStop = False
         Me.ColourSettings.Text = "Color Settings"
-        '
-        'Avatarscale
-        '
-        Me.Avatarscale.Controls.Add(Me.AvatarScaleList)
-        Me.Avatarscale.Location = New System.Drawing.Point(671, 50)
-        Me.Avatarscale.Name = "Avatarscale"
-        Me.Avatarscale.Size = New System.Drawing.Size(118, 108)
-        Me.Avatarscale.TabIndex = 30
-        Me.Avatarscale.TabStop = False
-        Me.Avatarscale.Text = "Avatar scale"
-        '
-        'AvatarScaleList
-        '
-        Me.AvatarScaleList.FormattingEnabled = True
-        Me.AvatarScaleList.Items.AddRange(New Object() {"64", "128", "256", "512", "1024", "2048"})
-        Me.AvatarScaleList.Location = New System.Drawing.Point(6, 19)
-        Me.AvatarScaleList.Name = "AvatarScaleList"
-        Me.AvatarScaleList.Size = New System.Drawing.Size(100, 82)
-        Me.AvatarScaleList.TabIndex = 0
-        '
-        'SaveSettings
-        '
-        Me.SaveSettings.Location = New System.Drawing.Point(677, 162)
-        Me.SaveSettings.Name = "SaveSettings"
-        Me.SaveSettings.Size = New System.Drawing.Size(102, 24)
-        Me.SaveSettings.TabIndex = 31
-        Me.SaveSettings.Text = "Save Settings"
-        Me.SaveSettings.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -226,6 +167,34 @@ Partial Class BotSettingsForm
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Guild:"
         '
+        'Avatarscale
+        '
+        Me.Avatarscale.Controls.Add(Me.AvatarScaleList)
+        Me.Avatarscale.Location = New System.Drawing.Point(671, 50)
+        Me.Avatarscale.Name = "Avatarscale"
+        Me.Avatarscale.Size = New System.Drawing.Size(118, 108)
+        Me.Avatarscale.TabIndex = 30
+        Me.Avatarscale.TabStop = False
+        Me.Avatarscale.Text = "Avatar scale"
+        '
+        'AvatarScaleList
+        '
+        Me.AvatarScaleList.FormattingEnabled = True
+        Me.AvatarScaleList.Items.AddRange(New Object() {"64", "128", "256", "512", "1024", "2048"})
+        Me.AvatarScaleList.Location = New System.Drawing.Point(6, 19)
+        Me.AvatarScaleList.Name = "AvatarScaleList"
+        Me.AvatarScaleList.Size = New System.Drawing.Size(100, 82)
+        Me.AvatarScaleList.TabIndex = 0
+        '
+        'SaveSettings
+        '
+        Me.SaveSettings.Location = New System.Drawing.Point(677, 162)
+        Me.SaveSettings.Name = "SaveSettings"
+        Me.SaveSettings.Size = New System.Drawing.Size(102, 24)
+        Me.SaveSettings.TabIndex = 31
+        Me.SaveSettings.Text = "Save Settings"
+        Me.SaveSettings.UseVisualStyleBackColor = True
+        '
         'BotSettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -257,9 +226,6 @@ Partial Class BotSettingsForm
     Friend WithEvents ReloadBotButton As Button
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents str_url As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents pl_txt As TextBox
     Friend WithEvents ColourSettings As GroupBox

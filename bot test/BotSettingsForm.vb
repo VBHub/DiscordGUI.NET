@@ -13,9 +13,7 @@
         MainWindow.SetPlayingStatus(pl_txt.Text, str_url.Text)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MainWindow.SetStreamStatus(pl_txt.Text, str_url.Text)
-    End Sub
+
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         ColorDialog1.ShowDialog()
@@ -45,4 +43,6 @@
         My.Settings.AvatarScale = AvatarScaleList.SelectedItem()
 
     End Sub
+
+
 End Class
